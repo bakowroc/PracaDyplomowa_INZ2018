@@ -12,7 +12,7 @@
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
-
+\usepackage{enumitem}
 \usepackage{supertabular}
 \usepackage{array}
 \usepackage{tabularx}
@@ -62,8 +62,43 @@ W dalszych następstwach powstają kolejne problemy, wynikające już z samej il
 \subsection{Systemy bazodanowe}
 \subsection{Wykorzystane narzędzia}
 \chapter{Założenia projektowe}
-\chapter{Wymaganie dotyczące projektu}
-\section{Wymaganie funkcjonalne}
+\chapter{Wymagania dotyczące projektu}
+\section{Wymagania funkcjonalne}
+\begin{tabularx}{\textwidth}{ l | X | l | l }
+\textbf {ID} & \textbf{Nazwa} & \textbf{Typ} & \textbf{Powiązania} \\
+\hline
+1 
+& Rejestracja nowego konta
+& Wymagane
+& -
+\end{tabularx}
+\\ \\
+\textbf{Przesłanka:} \\
+Aby korzystać z funkcjonalności jakie oferuje aplikacja należy posiadać założone konto. Korzystanie z aplikacji wymaga uwierzytelnienia. Wiele funkcjonalności użytkowych musi być powiązane z inicjatorem zdarzenia / wykonanej akcji, takie jak przypisanie użytkownika jako autora do pewych stworzonych struktur.
+\\ \\
+\textbf{Interesariusze:} \\
+Potencjalni użytkownicy aplikacji, użytkownicy nieposiadający zarejestrowanego konta w serwisie
+\\ \\
+\textbf{Opis:} \\
+W celu umożliwienia korzystania z aplikacji nowym użytkownikom należy stworzyć formularz rejestracyjny na nowej podstronie z wymaganymi polami:
+\begin{itemize}
+	\item Nazwa nowego projektu
+	\item Nazwa konta użytkownika
+	\item Hasło użytkownika
+	\item Potwierdzenie hasła użytkownika
+\end{itemize}
+\ \\
+Wszystkie pola wymagają poprawnej walidacji pod kątem poprawności danych według następujących zasad:
+\begin{itemize}
+	\item Żadne pole nie może być puste
+	\item Pole z nazwą projektu oraz nazwą użytkownika musi mieć conajmniej 6 znaków oraz być unikalne(inne od już stworzonych)
+	\item Pole z hasłem użytkownika musi mieć conajmniej 7 znaków oraz zawierać conajmniej jedną cyfrę
+	\item Pole z hasłem użytkownika oraz potwierdzeniem muszą być identyczne
+\end{itemize}
+\ \\
+Podczas próby wysłania formularza z błędneie wypełnionymi polami powinna pojawić się zawierająca treść błędów informacja
+\\
+Gdy pola zostaną zweryfikowane(zwalidowane) poprawnie, po wysłaniu formularza zostanie wprowadzony nowy rekord do bazy danych zawierający dane nowego użytkownika a sam użytkownik zostanie automatycznie przekierowany na stronę logowania.
 \section{Wymagania niefunkcjonalne}
 \chapter{Projekt aplikacji}
 \section{Zastosowane rozwiązania}
