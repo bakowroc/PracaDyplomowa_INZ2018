@@ -58,6 +58,20 @@ W dalszych następstwach powstają kolejne problemy, wynikające już z samej il
 \chapter{Analiza istniejących rozwiązań}  
 \section{Badanie rynku}
 \section{Zastosowane technologie}
+\subsection{Struktura aplikacji}
+Zaprojektowana aplikacja została podzielona na trzy główne części ze względu na cel oraz środowisko działania. Każda z nich została zaprojektowana w sposób autonomiczny, niezależny od pozostałych. Oznacza to, że można je traktować w sposób modularny, taki, który pozwala w bezinwazyjny dla aplikacji sposób zamienić je (oraz każdy z osobna) na inne rozwiązanie. Jedyną niezmienną rzeczą jest sposóB w jaki poszczególne części się ze sobą komunikują i wymieniają dane. 
+\subsubsection{Warstwa frontendowa}
+Warstwa odpowiadająca za obsługę części widocznej dla użytkownika aplikacji. Ma ona za zadanie obsługę zdarzeń wykonywanych przez użytkownika takich jak gesty myszki(kliknięcia, najeżdżanie kursorem, użycie klawiatury), przełączanie między podstronami a także wyświetlanie żądanej treści, jej układ na stronie, wygląd poszczególnych elementów, pozycja względem innych.
+\\
+Warstwa ta odpowiada także za wysyłanie żądań HTTP do zewnętrznych oraz wewnętrznych serwisów w celu pozyskania oraz przetworzenia otrzymanych danych. W skład zadań dotyczących tego zagadnienia wchodzi obsługa części błędów, mogących się pojawić podczas korzystania z aplikacji.
+\subsubsection{Warstwa backendowa}
+Warstwa ta zajmuje się częścią po stronie serwera, nie jest ona bezpośrednio widoczna dla użytkownika. Zadaniem tej warstwy jest nasłuchiwanie i odbieranie zapytań (np. HTTP) z zewnątrz, wliczając w to poprzednią warstwę frontendową. Zajmuje się ona także połączeniem z serwisem bazodanowym, odbieraniu oraz wysyłąniu danych w ramach przewarzania konkretnych zapytań (w zależności od zaimplementowanego systemu bazodanowego).
+\\
+Odbywają się tu takżę takie procesy jak uwierzytelnianie oraz podtrzymywanie sesji już zalogowanego użytkownika. Implementuje również obsługę błędów, głównie związanych z połączeniam bazodanowym.
+\\
+Warstwa ta ma za zadanie również serwować dane na zewnątrz aplikacji w formie API (Application Programming Interface - Interfejs Programowania Aplikacji)\cite{API}. Oznacza to, że momencie przejścia pod konkretny adres aplikacji (co jest jednoznacze z wysłaniem zapytania) jako informację zwrotną otrzymamy żądane dane w formacie JSON(JavaScript Object Notation)\cite {JSON}. Dane te można pote mw dowolny sposóB wykorzystać.
+\\
+Została tutaj zaimplementowana także forma zabezpieczenia niektórych warstw danych przed nieautoryzowanym dostępem.
 \subsection{Języki programistyczne}
 \subsection{Systemy bazodanowe}
 \subsection{Wykorzystane narzędzia}
