@@ -72,8 +72,36 @@ Odbywają się tu takżę takie procesy jak uwierzytelnianie oraz podtrzymywanie
 Warstwa ta ma za zadanie również serwować dane na zewnątrz aplikacji w formie API (Application Programming Interface - Interfejs Programowania Aplikacji)\cite{API}. Oznacza to, że momencie przejścia pod konkretny adres aplikacji (co jest jednoznacze z wysłaniem zapytania) jako informację zwrotną otrzymamy żądane dane w formacie JSON(JavaScript Object Notation)\cite {JSON}. Dane te można pote mw dowolny sposóB wykorzystać.
 \\
 Została tutaj zaimplementowana także forma zabezpieczenia niektórych warstw danych przed nieautoryzowanym dostępem.
+\subsubsection{Warstwa systemu bazodanowego}
+Warstwa systemu bazowego odpowiada za implementację oraz stworzenie fizycznej bazy danych na podstawie struktury danych. Do bazy danych łączy się warstwa backendowa posiadając odpowiednie dane autentykujące, takie jak nazwa bazy danych, adres serwera, nazwa oraz hasło użytkownika. Dane te są ustalane przez programistę.
+\\
+W odpowiedniku fizycznym tej warstwy są przechowywane wszelkie dane aplikacji.
 \subsection{Języki programistyczne}
-\subsection{Systemy bazodanowe}
+Warstwa frontendowa została napisana w języku JavaScript \cite {JS}, z wykorzystaniem standardu EcmaScript 6 \cite {ES6} oraz składni TypeScript \cite {TS}. Dodatkowo został użyty język znaczników HTML5 (Hype Text Markup Language) \cite {HTML}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascade Style Sheets) \cite {CSS}, dzięki którym możlliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do wypozycjonowanie SEO(Search Engine Optimization) \cite {HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor \cite {JS_CPU}. Koejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
+\\
+\\
+Warstwa backendowa również została zaimplementowana w języku JavaScript (z zasatosowaniem EcmaScript 6 oraz TypeScript. Posiadanie tego samego języka programowania w obu tych warstwach posiada szereg zalet, z których najważniejszymi jest czytelność kodu, poprzez podobne implementacje funkcjonalności na obu tych warstwach, co sprawia, że kod czytany przez osoby trzecie jest łatwiej i szybicej zrozumieć, co jest niezwykle ważne w dalszych procesach rozwojowych, w chwili gdy zajdzie potrzeba powiększenia zespołu programistycznego.
+\\
+Dodatkowym atutem jest możliwość użycia podobnych (jeśli nie tych samych) narzędzi programistycznych oraz konfiguracji środowiska.
+\\
+\\
+System bazodanowy wykorzystuje implementację mongoDB \cite{MongoDB}, który to posiada strukturę bazy typu NoSQL \cite{NO_SQL}. System ten jest bardzo prosty do skomunikowania z ykorzystującą język JavaScript warstwę backendową. Baza danych mongoDB wykorzystuje notację JSON. Nie implementuje powiązań typowych dla np. MySQL, gdzie wsytępują klucze obce oraz relacje. Każda struktura danych jest z założęnia nie powiązana z żadną inną (w sensie implementacyjnym, po stronie samego systemu mongoDB). Sposób relacji zatem określa się dopiero po stronie programowej(tu: warstwa backendowa) i jest on dowolny, optymalny do potrzeb i sytuacji.
+
+\subsection{Wykorzystane rozwiązania}
+\subsubsection{React.js}
+React.js \cite {React} został wykorzsytany w aplikacji jako podstawa warswt frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScriptowych, dzięki czemu kod napisany jest bardzo modularny i reużywalny.
+\subsubsection{Redux}
+Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności.
+\subsubsection{Axios}
+Axios \cite {Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa)
+\subsubsection{Socket.io}
+Socket.io \cite {Socket.io} to biblioteka implementująca koncepcję Web Socket \cite {web_socket}. ZOstała użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
+\subsubsection{Sortable.js}
+Bilbioteka Sortable.js \cite{Sortable} to obszerne narzędzie do zarządzania elementami typu przeciągnij-oraz-upuść(tzw. Drag and Drop). ZOstała zaimplementowana w celu podniesienia poziomu User Experience \cite {UX}.
+\subsubsection{Moment.js}
+Biblioteka ta \cite {Moment} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
+\subsubsection{Node.js}
+\subsubsection{Express}
 \subsection{Wykorzystane narzędzia}
 \chapter{Założenia projektowe}
 \chapter{Wymagania dotyczące projektu}
