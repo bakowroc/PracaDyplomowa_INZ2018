@@ -4,7 +4,7 @@
 \usepackage{listings}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
+\usepackage{scrextend}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{psfrag}
@@ -57,6 +57,16 @@ Problemy wynikające z potrzeby współpracy z innymi ludźmi spotyka się zazwy
 W dalszych następstwach powstają kolejne problemy, wynikające już z samej ilości zaangażowanych do projektu osób. Aby praca zespołowa przynosiła efekty należy musi być ona dobrze zorganizowana oraz zaplanowana.
 \chapter{Analiza istniejących rozwiązań}  
 \section{Badanie rynku}
+Rynek aplikacji powiązanych z pracą w grupie jest bardzo obszerny. Zawierają się tam mniej lub bardziej złożone aplikacje(płatne oraz darmowe) a każda ma już spore grono odbiorców począwszy od wielkich korporacji oraz sporych rozmiarów firm po mniejsze zespoły studenckie oraz amatorskie (nie powiązane z żadną organizacją). Aplikacje te, pomimo działania w jednym obszarze biznesowym różnią się od siebie stopniem złożoności, obszerności, sposobem funkcjonowania, procesami w nic hachodzącymi czy zwyczajnie interfejsem i wyglądem.\\
+Na rynku nie ma jednak oprogramowania idealnego. Każde z istniejących już rozwiązań posiada szereg wad oraz zalet. Poniższe zestawienie w sposóB subiektywny opisuje najbardziej powszechne rozwiązania.
+\subsection{Atlassian Jira}
+
+\subsection{Github Workboards}
+
+\subsection{Trello}
+
+\subsection{Meister Task}
+
 \section{Zastosowane technologie}
 \subsection{Struktura aplikacji}
 Zaprojektowana aplikacja została podzielona na trzy główne części ze względu na cel oraz środowisko działania. Każda z nich została zaprojektowana w sposób autonomiczny, niezależny od pozostałych. Oznacza to, że można je traktować w sposób modularny, taki, który pozwala w bezinwazyjny dla aplikacji sposób zamienić je (oraz każdy z osobna) na inne rozwiązanie. Jedyną niezmienną rzeczą jest sposóB w jaki poszczególne części się ze sobą komunikują i wymieniają dane. 
@@ -76,6 +86,10 @@ Została tutaj zaimplementowana także forma zabezpieczenia niektórych warstw d
 Warstwa systemu bazowego odpowiada za implementację oraz stworzenie fizycznej bazy danych na podstawie struktury danych. Do bazy danych łączy się warstwa backendowa posiadając odpowiednie dane autentykujące, takie jak nazwa bazy danych, adres serwera, nazwa oraz hasło użytkownika. Dane te są ustalane przez programistę.
 \\
 W odpowiedniku fizycznym tej warstwy są przechowywane wszelkie dane aplikacji.
+
+\subsection{Struktura danych}
+
+
 \subsection{Języki programistyczne}
 Warstwa frontendowa została napisana w języku JavaScript \cite {JS}, z wykorzystaniem standardu EcmaScript 6 \cite {ES6} oraz składni TypeScript \cite {TS}. Dodatkowo został użyty język znaczników HTML5 (Hype Text Markup Language) \cite {HTML}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascade Style Sheets) \cite {CSS}, dzięki którym możlliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do wypozycjonowanie SEO(Search Engine Optimization) \cite {HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor \cite {JS_CPU}. Koejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
 \\
@@ -88,54 +102,91 @@ Dodatkowym atutem jest możliwość użycia podobnych (jeśli nie tych samych) n
 System bazodanowy wykorzystuje implementację mongoDB \cite{MongoDB}, który to posiada strukturę bazy typu NoSQL \cite{NO_SQL}. System ten jest bardzo prosty do skomunikowania z ykorzystującą język JavaScript warstwę backendową. Baza danych mongoDB wykorzystuje notację JSON. Nie implementuje powiązań typowych dla np. MySQL, gdzie wsytępują klucze obce oraz relacje. Każda struktura danych jest z założęnia nie powiązana z żadną inną (w sensie implementacyjnym, po stronie samego systemu mongoDB). Sposób relacji zatem określa się dopiero po stronie programowej(tu: warstwa backendowa) i jest on dowolny, optymalny do potrzeb i sytuacji.
 
 \subsection{Wykorzystane rozwiązania}
+
+\subsubsection{Preprocessor Sass}
+Język Sass i preprocesor z nim związany \cite {SASS} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocesora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
+
 \subsubsection{React.js}
 React.js \cite {React} został wykorzsytany w aplikacji jako podstawa warswt frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScriptowych, dzięki czemu kod napisany jest bardzo modularny i reużywalny.
+
 \subsubsection{Redux}
 Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności.
+
 \subsubsection{Axios}
 Axios \cite {Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa)
+
 \subsubsection{Socket.io}
 Socket.io \cite {Socket.io} to biblioteka implementująca koncepcję Web Socket \cite {web_socket}. ZOstała użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
+
 \subsubsection{Sortable.js}
 Bilbioteka Sortable.js \cite{Sortable} to obszerne narzędzie do zarządzania elementami typu przeciągnij-oraz-upuść(tzw. Drag and Drop). ZOstała zaimplementowana w celu podniesienia poziomu User Experience \cite {UX}.
+
 \subsubsection{Moment.js}
 Biblioteka ta \cite {Moment} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
+
 \subsubsection{Node.js}
 Struktura oparta o Node.js \cite {Node.js} jest wykorzystywana jako główny filar warstwy backendowej. Framewrok ten jest odpowiedzielany za całą obsługę serwera oraz wcześniej opisanych (patrz: warstwa backendowa) funkcjonalności. Dodatkowo oprogramowanie oferuje system zarządzania zależnościami (NPM, patrz: wykorzystane narzędzia).
+
 \subsubsection{Express}
-Express \cite {Express} jest rozszerzenie mwzbogacającym oprogramowanie Node.js o dodatkowe funkcjonalności automatyzujące oraz usprawniające pisanie kodu.
+Express \cite {Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js o dodatkowe funkcjonalności automatyzujące oraz usprawniające pisanie kodu.
 \subsection{Wykorzystane narzędzia}
+
 \subsubsection{Node Package Manager (NPM)}
+Node Package Manager (NPM) \cite {NPM} jest dostarczanym wraz z oprogramowaniem Node.js narzędziem do zarządzania zależnościami projektowymi. Przez te pojęcie rozumie się wszelkie zewnętrzne paczki dodatkowych bilbiotek, rozszerzeń programistycznych . NPM pozwala na proste ich dodawanie, usuwanie oraz aktualizację w zależności od potrzeb (np. dotyczących wersji).
+
 \subsubsection{Yarn}
+Yarn \cite {YARN} jest dodatkową paczką wspierającą oraz rozszerzającą NPM o funkcjonalności głównie dotyczących  zainstalowanych już paczek. Jest wykorzystywany w projekcie do kontrolowania wersji zależności (automatyzacja wyszukiwania nieaktualnych oraz ich aktualizacja za pomocą jednej komendy). Dzięki YARN można także sprawdzić, które paczki są nieużywane w projekcie (co determinuje możliwość ich usunięcia).
+
 \subsubsection{Sass Lint}
+Zależność ta \cite {SASS_LINT} wspomaga proces zachowania czystego, bardziej czytelniejszego kodu napisanego w preprocesorze  SASS poprzez stosowanie (wcześniej zdefiniowanych) zasad dotyczących np. ilości spacji, odstępów tabulatora, sposobu zapisania reguł. Proces ten nosi nazwę lintowanie (z ang. lintering).
+
 \subsubsection{TS Lint}
+TypeScript Linter \cite {TS_LINT} ma analogiczne zadanie co wyżej wymieniony Sass Lint, jednak dotyczy kodu zapisanego w języku TypeScript.
+
 \subsubsection{Webpack}
+Webpack \cite {WEBPACK} jest narzędziem sprawującym kontrolę nad automatyzacją wielu zadań dotyczących kodu oraz środowiska programistycznego. DO głównych zadań należy przedewszystkim transpilacja \cite {TRANSPILE}, czyli tłumaczenia języka napisane przez programistę na inną jego wersję, co tu przekłada się na przepisywanie kodu napisanego w standardzie ES6(który nie jest zrozumiały przez przeglądarki) na standard ES5, który jest w pełni kompatybilny z interpretatorem przeglądarek. Kod napisany w preprocesorze SASS również jest niezrozumiały dla przegląDarek, toteż webpack zajmuje się transpilacją na język kaskadowych arkuszy styli CSS.
+\\
+W narzędziu tym możemy zdefiniować dodatkowe reguły dotyczące pliku wyjściowego, min: łączenie wszystkiego w jeden plik (bundle), zmiana nazw zmiennych w celu zaoszczędzenia miejsca, zmiana nazw klas CSS wg. ustalonego schematu oraz wiele innych.
+
 \subsubsection{Nodemon}
+Nodemone \cite {NODEMON} jest wsparciem do zarządzania serwerem podczas procesu programowania. Rozwiązuje on problem potrzeby ciągłego odświeżania domyślnego serwera dostarczanego przez oprogramowanie Node.js w chwili zmany pliku, który jest aktualnie przetwarzany. Nodemon w prosty sposób wprowadza nasłuch na zmiany tego pliku, automatycznie restartując serwer gdy takowe się pojawią.
+
+\subsubsection{GIT}
+System kontroli wersji GIT \cite {GIT} w folderze plików apikacji tworzy repozytorium, w którym możemy tworzyć gałęzie (branch) zawierające tylko zmiany na plikach wykonanych w jej obrębie. Przekłada się to na wysokiej jakości kontrolę nad zawartością kodu oraz zwiększeniu bezpieczeństwa wynikającego z błędu programistycznego. 
+
 \subsubsection{Travis CI}
+Travis CI \cite {TRAVIS} jest to narzędzie typu Continous Integration \cite {CI} pozwalające na kontrolowanie wrzucanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite {webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te tapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze z zastosowaniem nowych funkcjonalności. \\
+Zapewnia to, że wykonany do pewnego etapu projekt jest w pełni funkcjonalny, wolny od błędów programitycznych czy kodowych. Travis CI wspiera wysyłanie powiadomień (np. email) w chwili gdy którykolwiek z etapów nie zostanie wykonany poprawnie co minimalizuje czas potrzebny na naprawę aplikacji.
+
 \subsubsection{Heroku}
+Heroku \cite{Heroku} jest to darmowa platforma do uruchamiania aplikacji na serwerze(dostarczanym przez Heroku). Dzięki temu projekt jest możliwy do podglądu online. Dodatkowo Heroku tworzy repozytorium wraz z kodem aplikacji, co zabezpiecza kod przez utraceniem (głównym repozytorium pozostaje Github). Platforma ta dostarcza również wgląd w statystyki aplikacji oraz logi zawierające takie informacje jak status aplikacji, historię nawiążywanych połączeń oraz zdarzeń. Usprawnia to proces ewentualnego wyszukiwania błędów programistycznych.
+
 \subsubsection{Github}
-\chapter{Założenia projektowe}
+Github (http://www.github.com) jest internetową platformą pozwalającą na magazynowanie kodu aplikacji za pomocą oprogramowania GIT. Stosowanie tego rozwiązania zabezpiecza kod aplikacji przed utraceniem wskutek czynników trzecich. Zapewnia także jej mobilność(możliwość uruchomienia oraz programowania na dowolnym urządzeniu bez potrzeby angażowania fizycznych nośników danych).
+
+\chapter{Fakty i założenia związane z projektem }
+
 \chapter{Wymagania dotyczące projektu}
+
 \section{Wymagania funkcjonalne}
-\begin{tabularx}{\textwidth}{ l | X | l | l }
-\textbf {ID} & \textbf{Nazwa} & \textbf{Typ} & \textbf{Powiązania} \\
-\hline
-1 
-& Rejestracja nowego konta
-& Wymagane
-& -
-\end{tabularx}
-\\ \\
-\textbf{Przesłanka:} \\
+
+\subsubsection{Rejestracja nowego konta}
+\begin{labeling}{Powiązania}
+\item [ID:] 1
+\item [Typ:] Wymagane
+\item [Powiązania] -
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
 Aby korzystać z funkcjonalności jakie oferuje aplikacja należy posiadać założone konto. Korzystanie z aplikacji wymaga uwierzytelnienia. Wiele funkcjonalności użytkowych musi być powiązane z inicjatorem zdarzenia / wykonanej akcji, takie jak przypisanie użytkownika jako autora do pewych stworzonych struktur.
-\\ \\
-\textbf{Interesariusze:} \\
+
+\paragraph{Interesariusze}\ \\
 Potencjalni użytkownicy aplikacji, użytkownicy nieposiadający zarejestrowanego konta w serwisie
-\\ \\
-\textbf{Opis:} \\
+
+\paragraph{Opis}\ \\
 W celu umożliwienia korzystania z aplikacji nowym użytkownikom należy stworzyć formularz rejestracyjny na nowej podstronie z wymaganymi polami:
 \begin{itemize}
-	\item Nazwa nowego projektu
+	\item Nazwa nowego lub istniejącego projektu
 	\item Nazwa konta użytkownika
 	\item Hasło użytkownika
 	\item Potwierdzenie hasła użytkownika
@@ -144,18 +195,269 @@ W celu umożliwienia korzystania z aplikacji nowym użytkownikom należy stworzy
 Wszystkie pola wymagają poprawnej walidacji pod kątem poprawności danych według następujących zasad:
 \begin{itemize}
 	\item Żadne pole nie może być puste
-	\item Pole z nazwą projektu oraz nazwą użytkownika musi mieć conajmniej 6 znaków oraz być unikalne(inne od już stworzonych)
+	\item Pole z nazwą projektu(w sytuacji gdy nie istnieje) oraz nazwą użytkownika musi mieć conajmniej 6 znaków oraz być unikalne(inne od już stworzonych)
+	\item Pole z nazwą projektu(w sytuacji gdy istnieje) musi być powiązane z adresem e-mail użytkownika(poprzez wcześniejsze manualne powiązanie, patrz ID: 5)
 	\item Pole z hasłem użytkownika musi mieć conajmniej 7 znaków oraz zawierać conajmniej jedną cyfrę
 	\item Pole z hasłem użytkownika oraz potwierdzeniem muszą być identyczne
 \end{itemize}
 \ \\
-Podczas próby wysłania formularza z błędneie wypełnionymi polami powinna pojawić się zawierająca treść błędów informacja
+Podczas próby wysłania formularza z błędnie wypełnionymi polami powinna pojawić się zawierająca treść błędów informacja.
 \\
-Gdy pola zostaną zweryfikowane(zwalidowane) poprawnie, po wysłaniu formularza zostanie wprowadzony nowy rekord do bazy danych zawierający dane nowego użytkownika a sam użytkownik zostanie automatycznie przekierowany na stronę logowania.
+Gdy pola zostaną zweryfikowane(zwalidowane) poprawnie, po wysłaniu formularza zostanie wprowadzony nowy rekord do bazy danych zawierający dane nowego użytkownika a sam użytkownik zostanie automatycznie przekierowany na stronę logowania. Dodatkowo, gdy wpisany projekt nie został odnaleziony w bazie danych tworzony jest nowy. Nowo stworozny użytkownik zostaje jednocześnie członkiem tego projektu.
+\newpage
+
+\subsubsection{Logowanie do aplikacji}
+\begin{labeling}{Powiązania}
+\item [ID:] 2
+\item [Typ:] Wymagane
+\item [Powiązania] 1
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Zalogowanie się do serwisu zapewnia dostęp do wszystkich funkcjonalności aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie.
+
+\paragraph{Opis}\ \\
+Proces logowania polega na wypełnieniu formularza na stronie głównej następującymi danymi:
+\begin{itemize}
+	\item Nazwa projektu
+	\item Nazwa użytkownika
+	\item Hasło użytkownika
+\end{itemize}
+\ \\
+Po wysłaniu formularza aplikacja sprawdza zgodność wprowadzonych danych z danymi zaimplementowanymi w bazie danych. Weryfikuje się czy:
+\begin{itemize}
+	\item Użytkownik o podanej nazwie istnieje
+	\item Hasło użytkownika jest poprawne
+	\item Nazwa projektu zawiera się w bazie danych
+	\item Użytkownik należy do projektu
+\end{itemize}
+\ \\
+W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych preglądarki typu Local Storage \cite {local_storage}.
+\newpage
+
+\subsubsection{Wyświetlanie statystyk strony}
+\begin{labeling}{Powiązania}
+\item [ID:] 3
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Wgląd do ilości zawartej w projekcie treści takiej jak ilośc zadań, stworzonych tablic czy użytkowników  usprawnia proces pracy z użyciem aplikacji. Posiadanie wiedzy dotyczącej obecnej sytuacji projektu pomaga szybciej oszacować sytuację oraz etap, w którym projekt się znajduje, co jednoznacznie przekłada się na możliwość dostosowania pracy zalogowanego użytkownika do współpracowników.
+
+\paragraph{Interesariusze}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami oraz zadaniami dotyczącymi projektu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+Strona statystyk ma formę kilku tabel zawierających ostatnie pięć rekordów dotyczących odpowiedniej treści w niej prezentowanej, takiej jak lista ostatnio dodanych użytkowników oraz listę ostatnio stworzonych zadań. Pod każdą z tabel znajduje się przycisk sugerujący rozszerzenie ilości treści prezentowanej w danej tabeli.
+\\
+Dla tabeli zawierającej zadania przycisk ten przekierowuje użytkownika na podstronę z tablicami oraz zadaniami (patrz ID: 6). 
+\\
+Dla tabeli zawierającej listę użytkowników po naciśnięciu owego przycisku lista ta zostaje rozwinięta o kolejne pięć pozycji. Po pierwszym rozwinięciu pojawia się kolejny przycisk sugerujący ukrycie właśnie rozwiniętych elementów. W sytuacji gdy tabela zawiera wszystkie rekordy (lista wszystkich użytkowników) przycisk umożliwiający zwiększanie widocznych pozycji znika.
+\\ \\
+Na stronę statystyk składają się również trzy boksy z ilością odpowiednich danych. Osobny boks dla: liczby zadań, liczby tablic, liczby użytkowników.
+\newpage
+
+\subsubsection{Strona z tablicami oraz zadaniami}
+\begin{labeling}{Powiązania}
+\item [ID:] 4
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Dodawanie nowej tablicy}
+\begin{labeling}{Powiązania}
+\item [ID:] 4
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Edycja istniejącej tablicy}
+\begin{labeling}{Powiązania}
+\item [ID:] 5
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Usuwanie istniejącej tablicy}
+\begin{labeling}{Powiązania}
+\item [ID:] 6
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Dodawanie nowego zadania}
+\begin{labeling}{Powiązania}
+\item [ID:] 7
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Widok listy zadań na tablicy}
+\begin{labeling}{Powiązania}
+\item [ID:] 8
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Widok zarządzania zadaniem}
+\begin{labeling}{Powiązania}
+\item [ID:] 9
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Widok czatu wiadomości tekstowych}
+\begin{labeling}{Powiązania}
+\item [ID:] 10
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Stworzenie nowej wiadomości tekstowej}
+\begin{labeling}{Powiązania}
+\item [ID:] 11
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Strona profilu użytkownika}
+\begin{labeling}{Powiązania}
+\item [ID:] 12
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{Wysyłanie zaproszeń do projektu}
+\begin{labeling}{Powiązania}
+\item [ID:] 13
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
+\subsubsection{System powiadomień}
+\begin{labeling}{Powiązania}
+\item [ID:] 14
+\item [Typ:] Wymagane
+\item [Powiązania] 2
+\end{labeling}
+
+\paragraph{Przesłanka}\ \\
+Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+
+\paragraph{Interesariusze}\ \\
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\paragraph{Opis}\ \\
+\newpage
+
 \section{Wymagania niefunkcjonalne}
 \chapter{Projekt aplikacji}
-\section{Zastosowane rozwiązania}
-\section{Struktura danych}
+\section{Opis aplikacji}
+\section{Instrukcja korzystania}
+\chapter{Podsumownie}
+\section{Problemy zaistaniałe podczas implementacji}
+\section{Plany rozwojowe projektu}
 \addcontentsline{toc}{chapter}{Bibliografia}
 \bibliography{bibliografia}
 
