@@ -177,7 +177,7 @@ Github (http://www.github.com) jest internetową platformą pozwalającą na mag
 \end{labeling}
 
 \paragraph{Przesłanka}\ \\
-W celu udostępnienia danych za pomocą struktury systemu API należy stworzyć ścieżki(routes), na adres których wysyłane są zapytania HTTP w celu otrzymania wiaodmości zwrotnej zawierającej odpowiedni fragment danych, wyspecyfikowany w ścieżce url.
+W celu udostępnienia danych za pomocą struktury systemu API należy stworzyć ścieżki(routes), na adres których wysyłane są zapytania HTTP w celu otrzymania wiadomości zwrotnej zawierającej odpowiedni fragment danych, wyspecyfikowany w ścieżce url.
 
 \paragraph{Interesariusze}\ \\
 Wszyscy użytkownicy oraz dla części danych użytkownicy zalogowani, posiadający odpowiednie uprawnienia, zdeterminowane odpowiednimi przynależnościami do struktur.
@@ -236,13 +236,26 @@ Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT.
 \end{labeling}
 
 \paragraph{Przesłanka}\ \\
+Aby możliwa była obsługa aplikacji przy pomocy interfejsu graficznego, warstwa backendowa musi posiadać informacje o konieczności wyświetlenia odpowiedniego pliku na konkretnej ścieżce.
+
 
 \paragraph{Interesariusze}\ \\
 Wszyscy użytkownicy.
 
 \paragraph{Opis}\ \\
+Po odebraniu zapytania na adres główny domeny(adres nie posiadający żadnych parametrów w ścieżce URL) serwer(warstwa backendowa) wyświetla dokument o nazwie index.html jako statyczny plik. Rozszerzenie pliku sprawi, że nie potrzeba wykonywać dodatkowych akcji, ponieważ przeglądarka poprawnie zinterpretuje zawartą w pliku treść. \\
+Dodatkowo, aby zezwolić na pobieranie innych plików statycznych(obrazy, czcionki) przez przeglądarkę na podobnej zasadzie jest zaimplementowana ścieżka pod adresem '/static'.
 
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
+\paragraph{Wykorzystane narzędzia oraz technologie}\ \\ \\
+\begin{tabularx}{\textwidth}{|l|X|l|}
+  \hline
+    \textbf{Nazwa} & \textbf{Zakres}  & \textbf{Referencja}\\
+  \hline
+    Express &
+    Wykorzystanie wbudowanych funkcji routingu do stworzenia ścieżek końcowych(routes) serwujących pliki statyczne &
+    \cite{Express-static-routing}\\
+  \hline
+\end{tabularx}
 \newpage
 
 \subsubsection{Rejestracja nowego konta}
@@ -338,8 +351,6 @@ Dla tabeli zawierającej zadania przycisk ten przekierowuje użytkownika na pods
 Dla tabeli zawierającej listę użytkowników po naciśnięciu owego przycisku lista ta zostaje rozwinięta o kolejne pięć pozycji. Po pierwszym rozwinięciu pojawia się kolejny przycisk sugerujący ukrycie właśnie rozwiniętych elementów. W sytuacji gdy tabela zawiera wszystkie rekordy (lista wszystkich użytkowników) przycisk umożliwiający zwiększanie widocznych pozycji znika.
 \\ \\
 Na stronę statystyk składają się również trzy boksy z ilością odpowiednich danych. Osobny boks dla: liczby zadań, liczby tablic, liczby użytkowników.
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Strona z tablicami oraz zadaniami}
@@ -356,33 +367,39 @@ Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablica
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
+Projekt domyślnie nie posiada żadnych tablic oraz zadań, toteż strona odwiedzana po raz pierwszy prezentuje jedynie przycisk umożliwiający dodanie nowej tablicy wraz z widoczną informacją odnośnie potrzeby wykonania tej akcji. \\
+Strona ze stworzonymi już tablicami oraz zadaniami ma formę kilku kolumn, które reprezentują kolejne stworzone tablice. Ilość kolumn jest zdeterminowana ilością tablic. Każda kolumna składa się z ikony, nazwy oraz panelu opcji tablicy. W panelu rozwijanym znajduje się opcja usunięcia tablicy. \\
+Poniżej w formie listy znajdują się stworzone zadania, wraz z tytułem oraz skróconym opisem do 120 widocznych znaków. Jeśli tablica nie posiada przypisanych zadań wówczas widoczny jest komunikat o konieczności stworzenia lub przypisania już istniejącego(z innej tablicy). Na dole każdej listy znajduje się przycisk umożliwiający dodanie nowego zadania.
 \newpage
 
 \subsubsection{Dodawanie nowej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 7
 \item [Typ:] Wymagane
-\item [Powiązania:] 2
+\item [Powiązania:] 6
 \end{labeling}
 
 \paragraph{Przesłanka}\ \\
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Wymagane jest dostosowanie środowiska aplikacji do potrzeb projektu w celu zapewnienia optymalnej pracy.
 
 \paragraph{Interesariusze}\ \\
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
+Po naciśnięciu odpowiedniego przycisku otworzy się formularz zawierający pola z:
+\begin{itemize}
+  \item[--] Nazwą nowej tablicy
+  \item[--] Listą rozwijaną z ikonami
+\end{itemize}
+\ \\
+Wymagane jest aby pole z nazwą nowej tablicy było wypełnione. Gdy nie zostanie wybrana żadna ikona jest wybierana ikona domyślna. Gdy wystąpił błąd pojawia się informacja zawierająca jego treść. W przypadku sukcesu zostaje wysłane odpowiednie zapytanie do API, zawierające dane tablicy oraz dołączone z bazy Local Storage informacje dotyczące nazwy projektu. W warstwie backendowej następuje proces wprowadzenia nowej tablicy do bazy danych.
 \newpage
 
 \subsubsection{Edycja istniejącej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 8
 \item [Typ:] Wymagane
-\item [Powiązania:] 4
+\item [Powiązania:] 6
 \end{labeling}
 
 \paragraph{Przesłanka}\ \\
@@ -400,7 +417,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 9
 \item [Typ:] Wymagane
-\item [Powiązania:] 2
+\item [Powiązania:] 6
 \end{labeling}
 
 \paragraph{Przesłanka}\ \\
@@ -418,7 +435,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 10
 \item [Typ:] Wymagane
-\item [Powiązania:] 2
+\item [Powiązania:] 6
 \end{labeling}
 
 \paragraph{Przesłanka}\ \\
@@ -432,11 +449,11 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
-\subsubsection{Widok listy zadań na tablicy}
+\subsubsection{Sortowanie oraz organizacja zadań}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 11
 \item [Typ:] Wymagane
-\item [Powiązania:] 2
+\item [Powiązania:] 6
 \end{labeling}
 
 \paragraph{Przesłanka}\ \\
@@ -454,7 +471,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 12
 \item [Typ:] Wymagane
-\item [Powiązania:] 2
+\item [Powiązania:] 10
 \end{labeling}
 \paragraph{Przesłanka}\ \\
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
