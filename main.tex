@@ -154,7 +154,7 @@ Warstwa ta zajmuje się częścią po stronie serwera, nie jest ona bezpośredni
 \\
 Odbywają się tu także takie procesy jak uwierzytelnianie oraz podtrzymywanie sesji już zalogowanego użytkownika. Implementuje również obsługę błędów, głównie związanych z połączaniem bazodanowym.
 \\
-Warstwa ta ma za zadanie również serwować dane na zewnątrz aplikacji w formie API (Application Programming Interface - Interfejs Programowania Aplikacji)\cite{API}. Oznacza to, że momencie przejścia pod konkretny adres aplikacji (co jest jednoznaczne z wysłaniem zapytania) jako informację zwrotną otrzymamy żądane dane w formacie JSON(JavaScript Object Notation)\cite {JSON}. Dane te można potem w dowolny sposób wykorzystać.
+Warstwa ta ma za zadanie również serwować dane na zewnątrz aplikacji w formie API (Application Programming Interface - Interfejs Programowania Aplikacji)\cite{API}. Oznacza to, że momencie przejścia pod konkretny adres aplikacji (co jest jednoznaczne z wysłaniem zapytania) jako informację zwrotną otrzymamy żądane dane w formacie JSON(JavaScript Object Notation)\cite{JSON}. Dane te można potem w dowolny sposób wykorzystać.
 \\
 Została tutaj zaimplementowana także forma zabezpieczenia niektórych warstw danych przed nieautoryzowanym dostępem.
 \subsubsection{Warstwa systemu bazodanowego}
@@ -165,7 +165,7 @@ W odpowiedniku fizycznym tej warstwy są przechowywane wszelkie dane aplikacji.
 \subsection{Struktura danych}
 
 \subsection{Języki programistyczne}
-Warstwa frontendowa została napisana w języku JavaScript \cite {JS}, z wykorzystaniem standardu EcmaScript 6 \cite {ES6} oraz składni TypeScript \cite {TS}. Dodatkowo został użyty język znaczników HTML5 (Hype Text Markup Language) \cite {HTML}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascade Style Sheets) \cite {CSS}, dzięki którym możliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do pozycjonowania SEO(Search Engine Optimization) \cite {HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor. Koejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
+Warstwa frontendowa została napisana w języku JavaScript \cite{JS}, z wykorzystaniem standardu EcmaScript 6 \cite{ES6} oraz składni TypeScript \cite{TS}. Dodatkowo został użyty język znaczników HTML5 (Hype Text Markup Language) \cite{HTML5}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascade Style Sheets) \cite{CSS3}, dzięki którym możliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do pozycjonowania SEO(Search Engine Optimization) \cite{HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor. Koejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
 \\
 \\
 Warstwa backendowa również została zaimplementowana w języku JavaScript (z zastosowaniem EcmaScript 6 oraz TypeScript). Posiadanie tego samego języka programowania w obu tych warstwach posiada szereg zalet, z których najważniejszymi jest czytelność kodu, poprzez podobne implementacje funkcjonalności na obu tych warstwach, co sprawia, że kod czytany przez osoby trzecie jest łatwiej i szybciej zrozumieć, co jest niezwykle ważne w dalszych procesach rozwojowych, w chwili gdy zajdzie potrzeba powiększenia zespołu programistycznego.
@@ -180,10 +180,10 @@ System bazodanowy wykorzystuje implementację MongoDB \cite{MongoDB}, który to 
 Poniżej zostały opisane najważniejsze technologie / rozwiązania użyte w projekcie wraz z przykładem zakresu pracy, który dotyczą. W częśc niektórych zastosowanych rozwiązań wchodzą pomniejsze biblioteki, które wykorzystując nadrzędne rozwiązanie implementują dodatkowe funkcjonalności. Te pomniejsze biblioteki, nie zostały w jawny sposób opisane, gdyż często ich wkład ogranicza się jedynie do formy interpretacji kodu lub formy w jaki jest on napisany. Ich spis znajduje się w postaci tabel w odpowiednich paragrafach.
 
 \subsubsection{Preprocessor Sass}
-Język Sass i preprocessor z nim związany \cite {Sass} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności, takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
+Język Sass i preprocessor z nim związany \cite{Sass} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności, takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
 
 \subsubsection{React.js}
-React.js \cite {React} został wykorzystany w aplikacji jako podstawa warstwy frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScriptowych, dzięki czemu kod napisany jest bardzo modularny i reużywalny. Do samego frameworka zostały użyte dodatkowe biblioteki.
+React.js \cite{React} został wykorzystany w aplikacji jako podstawa warstwy frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScriptowych, dzięki czemu kod napisany jest bardzo modularny i reużywalny. Do samego frameworka zostały użyte dodatkowe biblioteki.
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -211,7 +211,7 @@ React.js \cite {React} został wykorzystany w aplikacji jako podstawa warstwy fr
 \end{table}
 
 \subsubsection{Redux}
-Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności. Wraz z samym rozszerzeniem używane są dodatkowe biblioteki wspomagające pracę Redux.
+Redux \cite{Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności. Wraz z samym rozszerzeniem używane są dodatkowe biblioteki wspomagające pracę Redux.
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -234,22 +234,22 @@ Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą org
 
 
 \subsubsection{Axios}
-Axios \cite {Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa) w celu pobrania danych w notacji JSON.
+Axios \cite{Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa) w celu pobrania danych w notacji JSON.
 
 \subsubsection{Socket.io}
-Socket.io \cite {SocketIO} to biblioteka implementująca koncepcję Web Socket \cite {Keyword_Websocket}. Została użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
+Socket.io \cite{SocketIO} to biblioteka implementująca koncepcję Web Socket \cite{Keyword_Websocket}. Została użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
 
 \subsubsection{Sortable.js}
-Bilbioteka Sortable.js \cite{SortableJS} to obszerne narzędzie do zarządzania elementami typu "przeciągnij oraz upuść"(tzw. Drag and Drop). Została zaimplementowana w celu podniesienia poziomu User Experience \cite {Keyword_UserExperience}.
+Bilbioteka Sortable.js \cite{SortableJS} to obszerne narzędzie do zarządzania elementami typu "przeciągnij oraz upuść"(tzw. Drag and Drop). Została zaimplementowana w celu podniesienia poziomu User Experience \cite{Keyword_UserExperience}.
 
 \subsubsection{Moment.js}
-Biblioteka ta \cite {MomentJS} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
+Biblioteka ta \cite{MomentJS} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
 
 \subsubsection{Node.js}
-Struktura oparta o Node.js \cite {NodeJS} jest wykorzystywana jako główny filar warstwy backendowej. Framework ten jest odpowiedzialny za całą obsługę serwera oraz wcześniej opisanych (patrz: warstwa backendowa) funkcjonalności. Dodatkowo oprogramowanie oferuje system zarządzania zależnościami (NPM, patrz: wykorzystane narzędzia).
+Struktura oparta o Node.js \cite{NodeJS} jest wykorzystywana jako główny filar warstwy backendowej. Framework ten jest odpowiedzialny za całą obsługę serwera oraz wcześniej opisanych (patrz: warstwa backendowa) funkcjonalności. Dodatkowo oprogramowanie oferuje system zarządzania zależnościami (NPM, patrz: wykorzystane narzędzia).
 
 \subsubsection{Express}
-Express \cite {Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js o dodatkowe funkcjonalności automatyzujące oraz usprawniające pisanie kodu.
+Express \cite{Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js o dodatkowe funkcjonalności automatyzujące oraz usprawniające pisanie kodu.
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -271,19 +271,19 @@ Express \cite {Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js
 \subsection{Wykorzystane narzędzia}
 
 \subsubsection{Node Package Manager (NPM)}
-Node Package Manager (NPM) \cite {NPM} jest dostarczanym wraz z oprogramowaniem Node.js narzędziem do zarządzania zależnościami projektowymi. Przez te pojęcie rozumie się wszelkie zewnętrzne paczki dodatkowych bibliotek, rozszerzeń programistycznych . NPM pozwala na proste ich dodawanie, usuwanie oraz aktualizację w zależności od potrzeb (np. dotyczących wersji).
+Node Package Manager (NPM) \cite{NPM} jest dostarczanym wraz z oprogramowaniem Node.js narzędziem do zarządzania zależnościami projektowymi. Przez te pojęcie rozumie się wszelkie zewnętrzne paczki dodatkowych bibliotek, rozszerzeń programistycznych . NPM pozwala na proste ich dodawanie, usuwanie oraz aktualizację w zależności od potrzeb (np. dotyczących wersji).
 
 \subsubsection{Yarn}
-Yarn \cite {Yarn} jest dodatkową paczką wspierającą oraz rozszerzającą NPM o funkcjonalności głównie dotyczących  zainstalowanych już paczek. Jest wykorzystywany w projekcie do kontrolowania wersji zależności (automatyzacja wyszukiwania nieaktualnych oraz ich aktualizacja za pomocą jednej komendy). Dzięki YARN można także sprawdzić, które paczki są nieużywane w projekcie (co determinuje możliwość ich usunięcia).
+Yarn \cite{Yarn} jest dodatkową paczką wspierającą oraz rozszerzającą NPM o funkcjonalności głównie dotyczących  zainstalowanych już paczek. Jest wykorzystywany w projekcie do kontrolowania wersji zależności (automatyzacja wyszukiwania nieaktualnych oraz ich aktualizacja za pomocą jednej komendy). Dzięki YARN można także sprawdzić, które paczki są nieużywane w projekcie (co determinuje możliwość ich usunięcia).
 
 \subsubsection{Sass Lint}
-Zależność ta \cite {SassLint} wspomaga proces zachowania czystego, bardziej czytelniejszego kodu napisanego w preprocessorze  Sass poprzez stosowanie (wcześniej zdefiniowanych) zasad dotyczących np. ilości spacji, odstępów tabulatora, sposobu zapisania reguł. Proces ten nosi nazwę lintowanie (z ang. lintering).
+Zależność ta \cite{SassLint} wspomaga proces zachowania czystego, bardziej czytelniejszego kodu napisanego w preprocessorze  Sass poprzez stosowanie (wcześniej zdefiniowanych) zasad dotyczących np. ilości spacji, odstępów tabulatora, sposobu zapisania reguł. Proces ten nosi nazwę lintowanie (z ang. lintering).
 
 \subsubsection{TS Lint}
-TypeScript Linter \cite {TSLint} ma analogiczne zadanie co wyżej wymieniony Sass Lint, jednak dotyczy kodu zapisanego w języku TypeScript.
+TypeScript Linter \cite{TSLint} ma analogiczne zadanie co wyżej wymieniony Sass Lint, jednak dotyczy kodu zapisanego w języku TypeScript.
 
 \subsubsection{Webpack}
-Webpack \cite {Webpack} jest narzędziem sprawującym kontrolę nad automatyzacją wielu zadań dotyczących kodu oraz środowiska programistycznego. DO głównych zadań należy przede wszystkim transpilacja \cite {Keyword_Transpile}, czyli tłumaczenia języka napisanego przez programistę na inną jego wersję, co tu przekłada się na przepisywanie kodu w standardzie ES6(który nie jest zrozumiały przez przeglądarki) na standard ES5, który jest w pełni kompatybilny z interpretatorem przeglądarek. Kod napisany w preprocesorze SASS również jest niezrozumiały dla przeglądarek, toteż webpack zajmuje się transpilacją na język kaskadowych arkuszy stylów CSS.
+Webpack \cite{Webpack} jest narzędziem sprawującym kontrolę nad automatyzacją wielu zadań dotyczących kodu oraz środowiska programistycznego. DO głównych zadań należy przede wszystkim transpilacja \cite{Keyword_Transpile}, czyli tłumaczenia języka napisanego przez programistę na inną jego wersję, co tu przekłada się na przepisywanie kodu w standardzie ES6(który nie jest zrozumiały przez przeglądarki) na standard ES5, który jest w pełni kompatybilny z interpretatorem przeglądarek. Kod napisany w preprocesorze SASS również jest niezrozumiały dla przeglądarek, toteż webpack zajmuje się transpilacją na język kaskadowych arkuszy stylów CSS.
 \\
 W narzędziu tym możemy zdefiniować dodatkowe reguły dotyczące pliku wyjściowego, min: łączenie wszystkiego w jeden plik (bundle), zmiana nazw zmiennych w celu zaoszczędzenia miejsca, zmiana nazw klas CSS wg. ustalonego schematu oraz wiele innych. 
 \\
@@ -327,13 +327,13 @@ Webpack wykorzystuje wiele gotowych rozwiązań podczas swojej pracy.
 \end{table}
    
 \subsubsection{Nodemon}
-Nodemon \cite {Nodemon} jest wsparciem do zarządzania serwerem podczas procesu programowania. Rozwiązuje on problem potrzeby ciągłego odświeżania domyślnego serwera dostarczanego przez oprogramowanie Node.js w chwili zmiany pliku, który jest aktualnie przetwarzany. Nodemon w prosty sposób wprowadza nasłuch na zmiany tego pliku, automatycznie restartując serwer gdy takowe się pojawią.
+Nodemon \cite{Nodemon} jest wsparciem do zarządzania serwerem podczas procesu programowania. Rozwiązuje on problem potrzeby ciągłego odświeżania domyślnego serwera dostarczanego przez oprogramowanie Node.js w chwili zmiany pliku, który jest aktualnie przetwarzany. Nodemon w prosty sposób wprowadza nasłuch na zmiany tego pliku, automatycznie restartując serwer gdy takowe się pojawią.
 
 \subsubsection{GIT}
-System kontroli wersji GIT \cite {GIT} w folderze plików aplikacji tworzy repozytorium, w którym możemy tworzyć gałęzie (branch) zawierające tylko zmiany na plikach wykonanych w jej obrębie. Przekłada się to na wysokiej jakości kontrolę nad zawartością kodu oraz zwiększeniu bezpieczeństwa wynikającego z błędu programistycznego. 
+System kontroli wersji GIT \cite{GIT} w folderze plików aplikacji tworzy repozytorium, w którym możemy tworzyć gałęzie (branch) zawierające tylko zmiany na plikach wykonanych w jej obrębie. Przekłada się to na wysokiej jakości kontrolę nad zawartością kodu oraz zwiększeniu bezpieczeństwa wynikającego z błędu programistycznego. 
 
 \subsubsection{Travis CI}
-Travis CI \cite {TravisCI} jest to narzędzie typu Continous Integration \cite {Keyword_CI} pozwalające na kontrolowanie wrzucanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite {Keyword_Webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te tapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze z zastosowaniem nowych funkcjonalności. \\
+Travis CI \cite{TravisCI} jest to narzędzie typu Continous Integration \cite{Keyword_CI} pozwalające na kontrolowanie wrzucanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite{Keyword_Webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te tapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze z zastosowaniem nowych funkcjonalności. \\
 Zapewnia to, że wykonany do pewnego etapu projekt jest w pełni funkcjonalny, wolny od błędów programistycznych czy kodowych. Travis CI wspiera wysyłanie powiadomień (np. e-mail) w chwili gdy którykolwiek z etapów nie zostanie wykonany poprawnie co minimalizuje czas potrzebny na naprawę aplikacji.
 
 \subsubsection{Heroku}
@@ -521,7 +521,7 @@ Po wysłaniu formularza aplikacja sprawdza zgodność wprowadzonych danych z dan
 	\item[--] Użytkownik należy do projektu
 \end{itemize}
 \ \\
-W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage\cite {Keyword_LocaLStorage}.
+W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage\cite{Keyword_LocaLStorage}.
 
 \subsection{Wyświetlanie statystyk strony}
 \begin{labeling}{Nr wymagania}
@@ -795,8 +795,8 @@ Po naciśnięciu odpowiedniego przycisku pojawia się panel boczny z wy listowan
 \subsection{Wymaganie estetyczne}
 \begin{itemize}
   \item Styl aplikacji musi być utrzymany w konwencji Material Design\cite{Material}
-  \item Aplikacja musi spełniać standardy narzucone przez serwis MDN\cite {MDN_HTML}\cite {MDN_CSS} dotyczących użycia znaczników HTML5 oraz CSS3.
-  \item Interfejs aplikacji musi spełniać podstawowe założenia ideii User Experience oraz User Interface\cite {Keyword_UserInterface}
+  \item Aplikacja musi spełniać standardy narzucone przez serwis MDN\cite{MDN_HTML}\cite{MDN_CSS} dotyczących użycia znaczników HTML5 oraz CSS3.
+  \item Interfejs aplikacji musi spełniać podstawowe założenia ideii User Experience oraz User Interface\cite{Keyword_UserInterface}
   \item Aplikacja zakłada przejrzystość struktury oraz estetykę interfejsu.
 \end{itemize} 
 
@@ -815,7 +815,7 @@ Po naciśnięciu odpowiedniego przycisku pojawia się panel boczny z wy listowan
 \begin{itemize}
   \item System bazodanowy musi być odpowiednio zabezpieczony przed ingerencją osób nieautoryzowanych. Wymaga się zatem aby hasło zabezpieczające posiadało znaki różnego typu(litery, cyfry, znaki specjalne)
   \item Wymagane jest aby baza danych aplikacji w wersji finalnej była zaimplementowana w odpowiednio przygotowanym środowisku, oferującym rozwiązania wysokiej jakości oraz zabezpieczenia w postaci kopi zapasowych. Nie zaleca się stosowania rozwiązań darmowych, w których bezpieczeństwo przed utratą danych jest niezapewnione.
-  \item W bazie danych nie mogą być przetrzymywane jawne hasła. Należy zapewnić zabezpieczenie w postaci użycia funkcji korzystającej z MD5\cite {MD5} lub pochodnej.
+  \item W bazie danych nie mogą być przetrzymywane jawne hasła. Należy zapewnić zabezpieczenie w postaci użycia funkcji korzystającej z MD5\cite{MD5} lub pochodnej.
 \end{itemize}
 \chapter{Projekt aplikacji}
 \section{Opis aplikacji}
