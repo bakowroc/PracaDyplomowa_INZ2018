@@ -190,8 +190,6 @@ React.js \cite {React} został wykorzystany w aplikacji jako podstawa warstwy fr
   \hline
     \textbf{Nazwa} & \textbf{Wersja} \\
   \hline
-    react & 16.0.0 \\
-  \hline
    	react-dom & 16.0.0 \\
   \hline
   	react-fa & 5.0.0 \\
@@ -390,7 +388,7 @@ Github (http://www.github.com) jest internetową platformą pozwalającą na mag
 \caption{Spis wersji wykorzystanych rozwiązań/narzędzi oraz innych wykorzystywanych globalnie paczek(nie uwzględnionych w powyższym zestawieniu).}
 \end{table}
 
-\chapter{Fakty i założenia związane z projektem }
+\section{Fakty i założenia związane z projektem }
 \begin{itemize}
   \item Do prawidłowego funkcjonowania aplikacji potrzebne jest połączenie z Internetem.
   \item Niektóre sieci nie zezwalają na połączenia z serwisem Heroku oraz mLab.
@@ -407,7 +405,6 @@ Github (http://www.github.com) jest internetową platformą pozwalającą na mag
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 1
 \item [Priorytet:] Wymagane
-\item [Powiązania:] -
 \end{labeling}
 
 \subsubsection{Przesłanka}
@@ -444,13 +441,11 @@ Każdy zalogowany użytkownik otrzymuje dostęp do:
 \end{itemize}
 \ \\
 Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT\cite{Keyword_JWTToken}.
-\newpage
 
 \subsection{Implementacja ścieżki dla warstwy frontendowej}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 2
 \item [Priorytet:] Wymagane
-\item [Powiązania:] -
 \end{labeling}
 
 \subsubsection{Przesłanka}
@@ -463,13 +458,11 @@ Wszyscy użytkownicy.
 \subsubsection{Opis}
 Po odebraniu zapytania na adres główny domeny(adres nie posiadający żadnych parametrów w ścieżce URL) serwer(warstwa backendowa) wyświetla dokument o nazwie index.html jako statyczny plik. Rozszerzenie pliku sprawi, że nie potrzeba wykonywać dodatkowych akcji, ponieważ przeglądarka poprawnie zinterpretuje zawartą w pliku treść. \\
 Dodatkowo, aby zezwolić na pobieranie innych plików statycznych(obrazy, czcionki) przez przeglądarkę na podobnej zasadzie jest zaimplementowana ścieżka pod adresem '/static'.
-\newpage
 
 \subsection{Rejestracja nowego konta}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 3
 \item [Priorytet:] Wymagane
-\item [Powiązania:] -
 \end{labeling}
 
 \subsubsection{Przesłanka}
@@ -499,13 +492,11 @@ Wszystkie pola wymagają poprawnej walidacji pod kątem poprawności danych wed�
 Podczas próby wysłania formularza z błędnie wypełnionymi polami powinna pojawić się zawierająca treść błędów informacja.
 \\
 Gdy pola zostaną zweryfikowane(sprawdzone pod kątem poprawności) poprawnie, po wysłaniu formularza zostanie wprowadzony nowy rekord do bazy danych zawierający dane nowego użytkownika a sam użytkownik zostanie automatycznie przekierowany na stronę logowania. Dodatkowo, gdy wpisany projekt nie został odnaleziony w bazie danych tworzony jest nowy. Nowo stworzony użytkownik zostaje jednocześnie członkiem tego projektu.
-\newpage
 
 \subsection{Logowanie do aplikacji}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 4
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 3
 \end{labeling}
 
 \subsubsection{Przesłanka}
@@ -531,13 +522,11 @@ Po wysłaniu formularza aplikacja sprawdza zgodność wprowadzonych danych z dan
 \end{itemize}
 \ \\
 W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage\cite {Keyword_LocaLStorage}.
-\newpage
 
 \subsection{Wyświetlanie statystyk strony}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 5
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 4
 \end{labeling}
 
 \subsubsection{Przesłanka}
@@ -554,17 +543,15 @@ Dla tabeli zawierającej zadania przycisk ten przekierowuje użytkownika na pods
 Dla tabeli zawierającej listę użytkowników po naciśnięciu owego przycisku lista ta zostaje rozwinięta o kolejne pięć pozycji. Po pierwszym rozwinięciu pojawia się kolejny przycisk sugerujący ukrycie właśnie rozwiniętych elementów. W sytuacji gdy tabela zawiera wszystkie rekordy (lista wszystkich użytkowników) przycisk umożliwiający zwiększanie widocznych pozycji znika.
 \\ \\
 Na stronę statystyk składają się również trzy boksy z ilością odpowiednich danych. Osobny boks dla: liczby zadań, liczby tablic, liczby użytkowników.
-\newpage
 
 \subsection{Strona z tablicami oraz zadaniami}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 6
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 4
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Priorytetowym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
 \subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
@@ -572,21 +559,19 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \subsubsection{Opis}
 Projekt domyślnie nie posiada żadnych tablic oraz zadań, toteż strona odwiedzana po raz pierwszy prezentuje jedynie przycisk umożliwiający dodanie nowej tablicy wraz z widoczną informacją odnośnie potrzeby wykonania tej akcji. \\
 Strona ze stworzonymi już tablicami oraz zadaniami ma formę kilku kolumn, które reprezentują kolejne stworzone tablice. Ilość kolumn jest zdeterminowana ilością tablic. Każda kolumna składa się z ikony, nazwy oraz panelu opcji tablicy. W panelu rozwijanym znajduje się opcja usunięcia tablicy. \\
-Poniżej w formie listy znajdują się stworzone zadania, wraz z tytułem oraz skróconym opisem do 120 widocznych znaków. Jeśli tablica nie posiada przypisanych zadań wówczas widoczny jest komunikat o konieczności stworzenia lub przypisania już istniejącego(z innej tablicy). Na dole każdej listy znajduje się przycisk umożliwiający dodanie nowego zadania.
-\newpage
+Poniżej w formie listy znajdują się stworzone zadania, wraz z tytułem oraz skróconym opisem do 120 widocznych znaków. Dodatkowo w formie koloru opisany jest priorytet zadania. Jeśli tablica nie posiada przypisanych zadań wówczas widoczny jest komunikat o konieczności stworzenia lub przypisania już istniejącego(z innej tablicy). Na dole każdej listy znajduje się przycisk umożliwiający dodanie nowego zadania.
 
 \subsection{Dodawanie nowej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 7
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 6
 \end{labeling}
 
 \subsubsection{Przesłanka}
 Wymagane jest dostosowanie środowiska aplikacji do potrzeb projektu w celu zapewnienia optymalnej pracy.
 
 \subsubsection{Interesariusze}
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \subsubsection{Opis}
 Po naciśnięciu odpowiedniego przycisku otworzy się formularz zawierający pola z:
@@ -602,164 +587,209 @@ Wymagane jest aby pole z nazwą nowej tablicy było wypełnione. Gdy nie zostani
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 8
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 6
+\end{labeling}
+
+\subsubsection{Przesłanka}
+W czasie projektu mogą wystąpić zmiany w organizacji i strukturze tablic. 
+
+\subsubsection{Interesariusze}
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+
+\subsubsection{Opis}
+Po naciśnięciu nazwy tablicy w widoku tablic pojawi się kursor umożliwiający dynamiczną zmianę nazwy tablicy(edycja za pomocą pola tekstowego). Pole z nazwą tablicy nie może być puste. Tablica zostanie zaktualizowana w momencie kliknięcia poza obszar nazwy lub klawisza Enter.
+\\
+Po kliknięciu na ikonę przy nazwie tablicy pojawi się lista rozwijana z dostępnymi ikonami do wyboru. Po kliknięciu na którąś z nich ikona zostanie od razu zaktualizowana a lista zamknięta. Listę można zamknąć też bez wybierania ikony poprzez kliknięcie poza jej obszar.
+
+\subsection{Usuwanie istniejącej tablicy}
+\begin{labeling}{Nr wymagania}
+\item [Nr wymagania:] 9
+\item [Priorytet:] Wymagane
 \end{labeling}
 
 \subsubsection{Przesłanka}
 W czasie projektu mogą wystąpić zmiany w organizacji i strukturze tablic.
 
 \subsubsection{Interesariusze}
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
-
-\subsubsection{Opis}
-Po naciśnięciu nazwy tablicy w widoku tablic pojawi się kursor umożliwiający dynamiczną zmianę nazwy tablicy(edycja za pomocą pola tekstowego). Pole z nazwą tablicy nie może być puste. Tablica zostanie zaktualizowana w momencie kliknięcia poza obszar nazwy lub klawisza Enter.
-\\
-Po kliknięciu na ikonę przy nazwie tablicy pojawi się lista rozwijana z dostępnymi ikonami do wyboru. Po kliknięciu na którąś z nich ikona zostanie od razu zaktualizowana a lista zamknięta. Listę można zamknąć też bez wybierania ikony poprzez kliknięcie poza jej obszar.
-\newpage
-
-\subsection{Usuwanie istniejącej tablicy}
-\begin{labeling}{Nr wymagania}
-\item [Nr wymagania:] 9
-\item [Priorytet:] Wymagane
-\item [Powiązania:] 6
-\end{labeling}
-
-\subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
-
-\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \subsubsection{Opis}
-\newpage
+Z listy rozwijanej  obok nazwy tablicy po wyborze opcji dotyczącej usuwania pojawi się komunikat wymagający potwierdzenia tej akcji z informacją o ewentualnych skutkach. Jeśli do tablicy przypisane są jakieś zadania wówczas  komunikat ten zawiera opcję(w formie pola wyboru) dotyczącą losu obecnych zadań. Pole to zawiera dwie opcje, z którą jedną z nich jest permanentne usunięcie przypisanych do tablicy zadań a drugą z możliwością przypisania do innej tablicy (jeśli istnieje). Po potwierdzeniu usunięcia tablicy wykonywane są wybrane akcje.
 
 \subsection{Dodawanie nowego zadania}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 10
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 6
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Lista zadań jest głównym celem istnienia aplikacji
 
 \subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \subsubsection{Opis}
-\newpage
+Po naciśnięciu przycisku pod listą zadań w widoku tablicy pojawia się formularz z następującymi polami:
+\begin{itemize}
+  \item[--] Nazwą zadania.
+  \item[--] Opisem zadania.
+  \item[--] Listą wyboru priorytetu.
+  \item[--] Opcją z możliwością otworzenia detali tego zadania po jego dodaniu.
+\end{itemize}
+Pole z nazwą oraz opisem nie może być puste, dodatkowo nazwa zadania musi być unikalna. Priorytet jest domyślnie ustawiony na najwyższy a opcja otworzenia dodatkowych informacji zaznaczona.\\
+Po zatwierdzeniu formularza zadania zostanie dodane i w zależności od wybranej opcji pojawia się okno ze szczegółami tego zadania(Widok zarządzania zadaniem). Autorem zostaje inicjator akcji. Zadanie jest przypisywane do tablicy, z której przycisk dotyczący dodania został naciśnięty. Zadanie otrzymuje najwyższą liczbę w kolejności (jako ostatnie).
 
 \subsection{Sortowanie oraz organizacja zadań}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 11
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 6
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Odpowiednia wizualizacja kolejności oraz dystrybucji zadań pomiędzy różnymi tablicami poprawia przejrzystość projektu oraz usprawnia pracę.
 
 \subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \subsubsection{Opis}
-\newpage
+Zmiana kolejności zadań oraz przypisania do innej tablicy odbywa się za pomocą mechanizmu Drag \& Drop (przeciągnij i upuść). Kolejność jest determinowana odpowiednim atrybutem w bazie danych, który po wykonaniu każdej tego typu akcji jest aktualizowany. W momencie zmiany przypisania (przenoszenie pomiędzy tablicami) zmienia się również atrybut zadania wskazujący przynależność do tablicy. Gdy zostanie przeniesione ostatnie zadanie z listy pojawia się komunikat(na liście) informujący o braku zadań i konieczności stworzenia lub ponownego przypisania.
 
 \subsection{Widok zarządzania zadaniem}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 12
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 10
 \end{labeling}
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Edycja stworzonym wcześniej zadaniem poprawia przejrzystość projektu. Wytyczne do zadania może się zmieniać w czasie.
 
 \subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \subsubsection{Opis}
-
+Po krótkim naciśnięciu na zadanie widoczne w liście w pojedynczej tablicy otwiera się okno ze szczegółami zadania wraz z możliwością ich edytowania:
+\begin{itemize}
+  \item[--] Nazwa oraz opis zadania jest edytowana w formie dynamicznej, za pomocą zmiany bezpośrednio w polu ich wyświetlenia (na podstawie pola tekstowego, opisane w wymaganiu nr 8)
+  \item[--] Przyciski dotyczące usuwania zadania oraz zaznaczania jako wykonane są odblokowane tylko dla osoby przypisanej do tego zadania.
+  \item[--] Zmiana przypisania użytkowników do zadania jest dozwolone tylko przez autora.
+\end{itemize}
+Zawarte są również informacje o autorze, dacie stworzenia zadania oraz tablicy do której jest ono przypisane. \\
+Dodatkowo znajduje się tam również okno czatu. W zależności od zadania może być to tylko przycisk, informujący o możliwości stworzenia systemu wiadomości lub już stworzony czat z wiadomościami. Każdy tego typu czat jest również dostępny z poziomu widoku czatu(wymaganie nr  13).\\
+Okno zarządzania zadaniem jest zamykane po naciśnięciu odpowiedniego przycisku.
 \newpage
 
 \subsection{Widok czatu wiadomości tekstowych}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 13
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 2
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Wymagana jest komunikacja w obrębie projektu między użytkownikami w celu efektywnej pracy i ustalania szczegółów dotyczących projektu.
 
 \subsubsection{Interesariusze}
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem. Czasami użytkownicy mający uprawnienia do odpowiedniego czatu.
 
 \subsubsection{Opis}
-\newpage
+W każdym nowo stworzonym projekcie domyślnie jest tworzony czat o nazwie "random"(z ang. losowy, dowolny), w założeniu czat ten ma się tyczyć rozmów na dowolny temat. \\
+Typy czatów możemy podzielić na publiczne (mają do niego dostęp wszyscy powiązani z projektem użytkownicy), private (dostęp tylko dla zaproszonych użytkowników), task (dostęp dla osób powiązanych z konkretnym zadaniem).
+\\
+Widok czatu składa się z listy chronologicznie posortowanych wiadomości(najnowsza na dole), pola tekstowego z możliwością dodania wiadomości oraz spisu wszystkich dostępnych dla użytkownika czatów z podziałem na te dotyczące zadań oraz inne. Po kliknięciu na któryś z wyslitowanych okno z wiadomościami zmienia się. Dodatkowo na dole listy czatów (niedotyczących zadań) znajduje się przycisk do stworzenia nowego pokoju(chatroom, z ang. kanał dyskusyjny).
 
-\subsection{Stworzenie nowej wiadomości tekstowej}
+\subsection{Stworzenie nowego pokoju czatu}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 14
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 2
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Tworzenie nowych pokoi czatu jest przydatne i konieczne w celu wymiany zdań na tematy niezwiązane z zadaniami. Podział i organizacja jest ważnym aspektem dotyczącym przejrzystości i efektywności pracy.
 
 \subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \subsubsection{Opis}
-\newpage
+Po naciśnięciu odpowiedniego przycisku wyświetla się formularz zawierający pola z:
+\begin{itemize}
+  \item Nazwą pokoju
+  \item Opcjonalnego opisu
+  \item Typu(publiczny, prywatny)
+  \item Listy z użytkownikami, którzy otrzymają dostęp do uczestnictwa w dyskusji(tylko opcja private)
+\end{itemize}
+Żadne z pól nie może być puste(poza opisem). Domyślnie typ czatu jest ustawiony na publiczny. Nie ma limitu uczestników przypisanych do czatu prywatnego.
+\\
+Po zatwierdzeniu formularza czat zostaje utworzony a autor(inicjator) przekierowany na stronę z nowo powstałym pokojem.
 
-\subsection{Strona profilu użytkownika}
+\subsection{Stworzenie nowej wiadomości tekstowej}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 15
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 2
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Tworzenie wiadomości tekstowych jest podstawą funkcjonowaniem czatu wiadomości.
 
 \subsubsection{Interesariusze}
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem. Użytkownicy mający dostęp do pokoju (chatroom)
 
 \subsubsection{Opis}
-\newpage
+Po zatwierdzeniu wiadomości wpisanej w odpowiednim polu(patrz wymaganie nr 13) pojawia się ona na samym dole listy wiadomości.
+\\
+Wiadomość składa się z nazwy autora, daty utworzenia, awataru(tu: graficznej formy reprezentacji) użytkownika.
 
-\subsection{Wysyłanie zaproszeń do projektu}
+\subsection{Widok profilu użytkownika}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 16
 \item [Priorytet:] Wymagane
-\item [Powiązania:] 2
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Personalizacja profilu oraz podgląd swojej aktywności oraz innych pozytywnie wpływa na organizację i przypisywanie zadań. 
 
 \subsubsection{Interesariusze}
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
 
 \subsubsection{Opis}
-\newpage
+Strona profilu użytkownika składa się z listy zawierającej podstawowe informacje o użytkowniku, takie jak nazwa, adres e-mail, data dołączenia do projektu, liczbę stworzonych zadań oraz liczbę zadań przypisanych. \\
+Kolejną częścią profilu jest podzielona na trzy części lista zadań. Każda cześć zawiera odpowiednio przefiltrowane zadania, których użytkownik jest autorem bądź został do niego przypisany. Odpowiednio są to: wszystkie zadania, zadania ukończone, zadania nieukończone. \\
+Właściciel profilu, podglądając swój własny może w prosty sposób edytować informacje takie jak nazwa użytkownika, adres e-mail czy hasło(edycja przebiega na takiej samej zasadzie co edycja tytułu tablicy - wymaganie nr 8).
+
+\subsection{Wysyłanie zaproszeń do projektu}
+\begin{labeling}{Nr wymagania}
+\item [Nr wymagania:] 17
+\item [Priorytet:] Wymagane
+\end{labeling}
+
+\subsubsection{Przesłanka}
+W skład projektu często wchodzi więcej niż jeden użytkownik.
+
+\subsubsection{Interesariusze}
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
+
+\subsubsection{Opis}
+Każdy zalogowany do projektu użytkownik ma możliwość wysłania zaproszenia niezarejestrowanemu lub zarejestrowanemu ale nie przypisanemu do projektu(tego do którego zaproszenie jest wysyłane) użytkownikowi. Z głównego menu wybierana jest opcja dotycząca wysyłaniu nowego zaproszenia po naciśnięciu, której pojawia się formularz z dwoma polami:
+\begin{itemize}
+  \item[--] Polem tekstowym przeznaczonym na ręczne wpisanie adresu e-mail
+  \item[--] Polem wyboru z listą zarejestrowanych już użytkowników(ale nie przypisanych do projektu aktywnego)
+\end{itemize}
+Po wybraniu adresu e-mail na podstawie jednego z pól(wypełnienie jednego z nich automatycznie blokuje możliwość wypełnienia drugiego) zależnie od tego, czy w bazie danych znajduje się podany adres, czy nie, podejmowana jest jedna z akcji:
+\begin{itemize}
+  \item Jeśli użytkownik o podanym adresie e-mail istnieje otrzymuje on powiadomienie(możliwa implementacja powiązana z wymaganiem nr 18) lub wiadomość wysłaną na ten adres.
+  \item Jeśli adres e-mail nie znajduje się w bazie danych, generowane jest losowe hasło (losowy ciąg znaków), które zostaje  wysłane na adres e-mail wraz z podstawowymi informacjami o projekcie.
+\end{itemize}
 
 \subsection{System powiadomień}
 \begin{labeling}{Nr wymagania}
-\item [Nr wymagania:] 17
+\item [Nr wymagania:] 18
 \item [Priorytet:] Niewymagane
-\item [Powiązania:] 2
 \end{labeling}
 
 \subsubsection{Przesłanka}
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+Dokumentowanie akcji związanych z projektem oraz użytkownikiem w znacznym stopniu usprawnia procesy zarządzania zadaniami, tablicami i ogólnie projektem. Umożliwia to na przykład szybsze reagowanie na podejmowane przez innych użytkowników akcje, takie jak zmiany w zadaniach, wiadomości w czacie.
 
 \subsubsection{Interesariusze}
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
 
 \subsubsection{Opis}
-\newpage
+Po naciśnięciu odpowiedniego przycisku pojawia się panel boczny z wy listowanymi zdarzeniami dotyczącymi użytkownika. Jedno zdarzenie zawiera takie informacje jak data, zakres, typ. W zależności od typu zdarzenia możliwe są dodatkowe akcje takie jak np. odnośnik do zadania/czatu, którego zdarzenie dotyczy.
 
 \section{Wymagania niefunkcjonalne}
 \subsection{Wymaganie estetyczne}
@@ -791,7 +821,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \section{Opis aplikacji}
 \section{Instrukcja korzystania}
 \chapter{Podsumowanie}
-Implementacja projektu nie została w pełni ukończona jednak udało się spełnić większość wymagań funkcjonalnych i niefunkcjonalnych(niektóre tylko częściowo), głównie tych o priorytecie wymaganym. Wymagań o priorytecie niższym nie udało się zaimplementować wcale, jednak są one solidną podstawą na dalszą część rozwoju aplikacji w przyszłości
+Implementacja projektu nie została w pełni ukończona jednak udało się spełnić większość wymagań funkcjonalnych i niefunkcjonalnych(niektóre tylko częściowo), głównie tych o priorytecie wymaganym. Wymagań o priorytecie niższym nie udało się zaimplementować wcale, jednak są one solidną podstawą na dalszą część rozwoju aplikacji w przyszłości.
 \\
 Powodem był zarówno niewystarczający czas poświęcony na proces implementacyjny jak i wiele problemów napotkanych w czasie realizacji (programistycznych oraz innego typu).
 \\
@@ -808,6 +838,7 @@ Poniżej znajduje się wypunktowana lista zawierająca to czego nie udało się 
   \item System Drag \& Drop (przeciągnij i upuść) dla listy zadań czasami powoduje błędy w działaniu całej aplikacji (brak obsługi niektórych związanych z tą technologią błędów)
   \item Brak możliwości przypisywania innych użytkowników do zadania poza autorem
   \item Brak obsługi niektórych błędów i zdarzeń dotyczących czatu(niechronologiczne wyświetlanie wiadomości w kilku miejscach)
+  \item Brak możliwości tworzenia nowego czatu
   \item Brak systemu zaproszeń(powiązane z drugim punktem tej listy)
   \item Brak systemu powiadomień
 \end{itemize}
