@@ -239,7 +239,7 @@ Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą org
 Axios \cite {Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa) w celu pobrania danych w notacji JSON.
 
 \subsubsection{Socket.io}
-Socket.io \cite {SocketIO} to biblioteka implementująca koncepcję Web Socket \cite {Keyword_Websocket}. ZOstała użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
+Socket.io \cite {SocketIO} to biblioteka implementująca koncepcję Web Socket \cite {Keyword_Websocket}. Została użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
 
 \subsubsection{Sortable.js}
 Bilbioteka Sortable.js \cite{SortableJS} to obszerne narzędzie do zarządzania elementami typu "przeciągnij oraz upuść"(tzw. Drag and Drop). Została zaimplementowana w celu podniesienia poziomu User Experience \cite {Keyword_UserExperience}.
@@ -406,7 +406,7 @@ Github (http://www.github.com) jest internetową platformą pozwalającą na mag
 \subsection{Implementacja API}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 1
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] -
 \end{labeling}
 
@@ -449,7 +449,7 @@ Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT\cite{Keyword_JWTTo
 \subsection{Implementacja ścieżki dla warstwy frontendowej}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 2
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] -
 \end{labeling}
 
@@ -468,7 +468,7 @@ Dodatkowo, aby zezwolić na pobieranie innych plików statycznych(obrazy, czcion
 \subsection{Rejestracja nowego konta}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 3
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] -
 \end{labeling}
 
@@ -504,7 +504,7 @@ Gdy pola zostaną zweryfikowane(sprawdzone pod kątem poprawności) poprawnie, p
 \subsection{Logowanie do aplikacji}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 4
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 3
 \end{labeling}
 
@@ -536,7 +536,7 @@ W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W 
 \subsection{Wyświetlanie statystyk strony}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 5
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 4
 \end{labeling}
 
@@ -559,7 +559,7 @@ Na stronę statystyk składają się również trzy boksy z ilością odpowiedni
 \subsection{Strona z tablicami oraz zadaniami}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 6
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 4
 \end{labeling}
 
@@ -578,7 +578,7 @@ Poniżej w formie listy znajdują się stworzone zadania, wraz z tytułem oraz s
 \subsection{Dodawanie nowej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 7
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
@@ -601,7 +601,7 @@ Wymagane jest aby pole z nazwą nowej tablicy było wypełnione. Gdy nie zostani
 \subsection{Edycja istniejącej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 8
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
@@ -614,13 +614,13 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \subsubsection{Opis}
 Po naciśnięciu nazwy tablicy w widoku tablic pojawi się kursor umożliwiający dynamiczną zmianę nazwy tablicy(edycja za pomocą pola tekstowego). Pole z nazwą tablicy nie może być puste. Tablica zostanie zaktualizowana w momencie kliknięcia poza obszar nazwy lub klawisza Enter.
 \\
-Po kliknięciu na ikonę przy nazwie tablicy pojawi się lista rozwijana z dostępnymi ikonami do wyboru. Po kliknięciu na którąś z nich ikona zostanie od razu zaktualizowana a lista zamknięta. Listę można zamknąć też bez wbierania ikony poprzez kliknięcie poza jej obszar.
+Po kliknięciu na ikonę przy nazwie tablicy pojawi się lista rozwijana z dostępnymi ikonami do wyboru. Po kliknięciu na którąś z nich ikona zostanie od razu zaktualizowana a lista zamknięta. Listę można zamknąć też bez wybierania ikony poprzez kliknięcie poza jej obszar.
 \newpage
 
 \subsection{Usuwanie istniejącej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 9
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
@@ -636,7 +636,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \subsection{Dodawanie nowego zadania}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 10
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
@@ -652,7 +652,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \subsection{Sortowanie oraz organizacja zadań}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 11
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
@@ -668,7 +668,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \subsection{Widok zarządzania zadaniem}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 12
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 10
 \end{labeling}
 \subsubsection{Przesłanka}
@@ -684,84 +684,81 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \subsection{Widok czatu wiadomości tekstowych}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 13
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 2
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 \newpage
 
 \subsection{Stworzenie nowej wiadomości tekstowej}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 14
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 2
 \end{labeling}
-\paragraph{Przesłanka}\ \\
+
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
+\subsubsection{Opis}
 \newpage
 
 \subsection{Strona profilu użytkownika}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 15
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 2
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 \newpage
 
 \subsection{Wysyłanie zaproszeń do projektu}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 16
-\item [Typ:] Wymagane
+\item [Priorytet:] Wymagane
 \item [Powiązania:] 2
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
+\subsubsection{Opis}
 \newpage
 
 \subsection{System powiadomień}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 17
-\item [Typ:] Niewymagane
+\item [Priorytet:] Niewymagane
 \item [Powiązania:] 2
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 \newpage
 
 \section{Wymagania niefunkcjonalne}
@@ -794,17 +791,47 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \section{Opis aplikacji}
 \section{Instrukcja korzystania}
 \chapter{Podsumowanie}
-Implementacja projektu nie została w pełni ukończona jednak udało się spełnić większość wymagań funkcjonalnych i niefunckjonalnych, głównie tych o priorytecie wymaganym. Wymagań o priorytecie niższym nie udało się zaimplementować wcale, jednak są one solidną podstawą na dalszą część rozwoju aplikacji w przyszłości
+Implementacja projektu nie została w pełni ukończona jednak udało się spełnić większość wymagań funkcjonalnych i niefunkcjonalnych(niektóre tylko częściowo), głównie tych o priorytecie wymaganym. Wymagań o priorytecie niższym nie udało się zaimplementować wcale, jednak są one solidną podstawą na dalszą część rozwoju aplikacji w przyszłości
 \\
 Powodem był zarówno niewystarczający czas poświęcony na proces implementacyjny jak i wiele problemów napotkanych w czasie realizacji (programistycznych oraz innego typu).
-\section{}
+\\
+\\
+Dobór wymienionych technologii programistycznych i narzędzi wspierających ten proces okazał się dobrym pomysłem. Błędy i niedociągnięcia wynikały tylko z przyczyn braku wystarczającej ilości czasu na nauczenie się ich a nie z faktu użycia któregoś z nich. Stosowanie tych technologii nie sprawiało problemu w zrozumieniu ich działania czy użycia.
+\section{Implementacja a wymagania}
+Poniżej znajduje się wypunktowana lista zawierająca to czego nie udało się zaimplementować a było wymienione w wymaganiach:
+\begin{itemize}
+  \item Brak zabezpieczeń przed nieautoryzowanym dostępem do danych dostępnych z poziomu API.
+  \item Brak rejestracji nowego konta dla wcześniej stworzonego projektu(rejestracja tylko dla nowego)
+  \item Brak możliwości edycji ikony tablicy
+  \item Brak możliwości usuwania tablicy
+  \item Brak implementacji Drag \& Drop dla tablic w celu zmiany ich kolejności
+  \item System Drag \& Drop (przeciągnij i upuść) dla listy zadań czasami powoduje błędy w działaniu całej aplikacji (brak obsługi niektórych związanych z tą technologią błędów)
+  \item Brak możliwości przypisywania innych użytkowników do zadania poza autorem
+  \item Brak obsługi niektórych błędów i zdarzeń dotyczących czatu(niechronologiczne wyświetlanie wiadomości w kilku miejscach)
+  \item Brak systemu zaproszeń(powiązane z drugim punktem tej listy)
+  \item Brak systemu powiadomień
+\end{itemize}
+Zostały jednak spełnione wszystkie wymagania dotyczące wyglądu aplikacji oraz ergonomii i wygody korzystania z niej. Aplikacja posiada przejrzysty i intuicyjny interfejs oraz jest w pełni dynamiczna pod względem zarządzania danymi czy szybkości działania. \\
+Zaimplementowane wymagania funkcjonalne spełniają część zakładanej roli pomimo błędów w działaniu niektórych z nich.
+
 \section{Problemy zaistniałe podczas implementacji}
 Poniżej znadują się najważniejsze problemy napotkane podczas realizacji projektu dyplomowego. Mają one charakter ogólny, nie zawierają konkretnych części(np. funkcji w kodzie, dni, wydarzeń):
 \begin{itemize}
   \item Brak wystarczającej ilości czasu spowodowany innymi obowiązkami w czasie realizacji projektu, takie jak praca czy obowiązki szkolne.
   \item Występowanie błędów dotyczących użycia gotowych rozwiązań, brak pomysłów i wiedzy na ich rozwiązanie co spowodowane było nieznajomością wszystkich wybranych struktur, technologi, narzędzi(co jednocześnie jest powiązane z brakiem wystarczającej ilości czasu na nauczenie się ich).
 \end{itemize}
-\section{Plany rozwojowe projektu}
+\section{Plany i możliwości rozwojowe projektu}
+Dalszy rozwój aplikacji w przyszłości wymagać będzie na pewno dokończenia rozpoczętych już funkcjonalności oraz niwelacji istniejących błędów. Tylko wtedy będzie można rozpocząć proces usprawniania aplikacji o dodatkowe założenia i wymagania. Głównymi pomysłami o jakie warto rozszerzyć aplikację są na pewno:
+\begin{itemize}
+  \item Implementacja logowania za pomocą zewnętrznych serwisów takich jak Facebook, Google, Twitter.
+  \item System migracji zadań / tablic z podobnych serwisów na rynku.
+  \item Wprowadzenie integracji z systemami zewnętrznymi(Guthub, Docker, Jenkins).
+  \item Usprawnienia czatu wiadomości pod kątem wyglądu oraz implementacja możliwości przesyłania mediów takich jak obrazy, wideo, linki, dokumenty.
+  \item Dodatkową integrację z systemami kontroli wersji (GIT) w celu połączenia projektu bezpośrednio z aplikacją umożliwiając tym samym przeglądanie zmian wprowadzanych przez współpracowników wraz z systemem komentarzy.
+  \item Stworzenie aplikacji na telefon umożliwiającą podgląd zmian oraz nadzorowanie projektu bez potrzeby bycia stacjonarnym.
+\end{itemize}
+\section{Mowa końcowa}
+Projekt aplikacji ma duży potencjał wybicia się ponad obecne na rynku rozwiązania z powodu implementacji wielu innowacyjnych funkcjonalności oraz połączeniu ich w sposób nie występujący w żadnej innej aplikacji.
 \addcontentsline{toc}{chapter}{Bibliografia}
 \bibliography{bibliografia}
 
