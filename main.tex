@@ -22,13 +22,13 @@
 \newcommand{\R}{I\!\!R}
 \newtheorem{theorem}{Twierdzenie}[section]
 
-\title{Tytuł pracy inżynierskiej}
-\engtitle{English title}
+\title{Projekt i implementacja aplikacji internetowy organizator pracy grupowej }
+\engtitle{Design and implementation of web organizer for group collaboration}
 \author{Maciej Bakowicz}
-\supervisor{dr hab. inż. Imię Nazwisko Prof. PWr, I-6}
+\supervisor{dr hab. inż. Krzysztof Walkowiak, prof. PWr, W-4}
 
 \field{Teleinformatyka (TIN)}
-\specialisation{Projektowanie sieci teleinformatycznych (TIP )}
+\specialisation{Projektowanie sieci teleinformatycznych (TIP)}
 
 
 \begin{document}
@@ -45,10 +45,10 @@ Pierwsza cześć składa się ze szczegółowego omówienia problemu występują
 \\
 Druga cześć opisuje proces implementacji aplikacji internetowej. Zawiera min opis wykorzystanych technologii, narzędzi. Znalazł się tam również system pracy nad projektem oraz jej podział.
 \\
-Końcowa, trzecia część obejmuje podsumowanie całości pracy; Zawiera się w nim to co zostało zrealizowane do chwili obecnej oraz dalsze plany dotyczące rozwoju aplikacji w przyszłości wraz z propozycjami dodatkowych funkcjonalności . W tej części zawarte są również wnioski oraz konkluzje dotyczące procesu programistycznego oraz samego projektu aplikacji\cite{Node.js}.
+Końcowa, trzecia część obejmuje podsumowanie całości pracy; Zawiera się w nim to co zostało zrealizowane do chwili obecnej oraz dalsze plany dotyczące rozwoju aplikacji w przyszłości wraz z propozycjami dodatkowych funkcjonalności . W tej części zawarte są również wnioski oraz konkluzje dotyczące procesu programistycznego oraz samego projektu aplikacji.
 
 \section{Cel pracy}
-Celem pracy jest opisanie projektu aplikacji, procesów na nią się składających oraz zaimplementowanie jako działającego programu rozwiązującego problemy pracy w grupie.
+Celem pracy jest opisanie projektu aplikacji, procesów na nią się składających oraz zaimplementowanie jej jako działającego programu rozwiązującego problemy pracy w grupie.
 \\
 Projekt ma zarówno wyjaśnić istniejący problem dotykający tego typu kooperacji między ludźmi a także dostarczyć gotowe rozwiązania niwelujące zaistniałe niedogodności oraz uprościć procesy powiązane z tym zagadnieniem. Głównym zadaniem jest próba poprawy mechanizmów komunikacji, systematyzacji pracy oraz podziału zadań między poszczególnych członków zespołu w sposób łatwy, wygodny a przede wszystkim efektywny, wydajny i przynoszący zyski.
 \section{Problem}
@@ -88,28 +88,71 @@ W odpowiedniku fizycznym tej warstwy są przechowywane wszelkie dane aplikacji.
 
 \subsection{Struktura danych}
 
-
 \subsection{Języki programistyczne}
-Warstwa frontendowa została napisana w języku JavaScript \cite {JS}, z wykorzystaniem standardu EcmaScript 6 \cite {ES6} oraz składni TypeScript \cite {TS}. Dodatkowo został użyty język znaczników HTML5 (Hype Text Markup Language) \cite {HTML}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascade Style Sheets) \cite {CSS}, dzięki którym możliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do pozycjonowania SEO(Search Engine Optimization) \cite {HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor \cite {JS_CPU}. Koejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
+Warstwa frontendowa została napisana w języku JavaScript \cite {JS}, z wykorzystaniem standardu EcmaScript 6 \cite {ES6} oraz składni TypeScript \cite {TS}. Dodatkowo został użyty język znaczników HTML5 (Hype Text Markup Language) \cite {HTML}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascade Style Sheets) \cite {CSS}, dzięki którym możliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do pozycjonowania SEO(Search Engine Optimization) \cite {HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor. Koejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
 \\
 \\
-Warstwa backendowa również została zaimplementowana w języku JavaScript (z zastosowaniem EcmaScript 6 oraz TypeScript. Posiadanie tego samego języka programowania w obu tych warstwach posiada szereg zalet, z których najważniejszymi jest czytelność kodu, poprzez podobne implementacje funkcjonalności na obu tych warstwach, co sprawia, że kod czytany przez osoby trzecie jest łatwiej i szybciej zrozumieć, co jest niezwykle ważne w dalszych procesach rozwojowych, w chwili gdy zajdzie potrzeba powiększenia zespołu programistycznego.
+Warstwa backendowa również została zaimplementowana w języku JavaScript (z zastosowaniem EcmaScript 6 oraz TypeScript). Posiadanie tego samego języka programowania w obu tych warstwach posiada szereg zalet, z których najważniejszymi jest czytelność kodu, poprzez podobne implementacje funkcjonalności na obu tych warstwach, co sprawia, że kod czytany przez osoby trzecie jest łatwiej i szybciej zrozumieć, co jest niezwykle ważne w dalszych procesach rozwojowych, w chwili gdy zajdzie potrzeba powiększenia zespołu programistycznego.
 \\
 Dodatkowym atutem jest możliwość użycia podobnych (jeśli nie tych samych) narzędzi programistycznych oraz konfiguracji środowiska.
 \\
 \\
-System bazodanowy wykorzystuje implementację mongoDB \cite{MongoDB}, który to posiada strukturę bazy typu NoSQL \cite{NO_SQL}. System ten jest bardzo prosty do skomunikowania z wykorzystującą język JavaScript warstwę backendową. Baza danych mongoDB wykorzystuje notację JSON. Nie implementuje powiązań typowych dla np. MySQL, gdzie występują klucze obce oraz relacje. Każda struktura danych jest z założenia nie powiązana z żadną inną (w sensie implementacyjnym, po stronie samego systemu mongoDB). Sposób relacji zatem określa się dopiero po stronie programowej(tu: warstwa backendowa) i jest on dowolny, optymalny do potrzeb i sytuacji.
+System bazodanowy wykorzystuje implementację MongoDB \cite{MongoDB}, który to posiada strukturę bazy typu NoSQL \cite{NO_SQL}. System ten jest bardzo prosty do skomunikowania z wykorzystującą język JavaScript warstwę backendową. Baza danych mongoDB wykorzystuje notację JSON. Nie implementuje powiązań typowych dla np. MySQL, gdzie występują klucze obce oraz relacje. Każda struktura danych jest z założenia nie powiązana z żadną inną (w sensie implementacyjnym, po stronie samego systemu mongoDB). Sposób relacji zatem określa się dopiero po stronie programowej(tu: warstwa backendowa) i jest on dowolny, optymalny do potrzeb i sytuacji.
 
 \subsection{Wykorzystane rozwiązania}
 
+Poniżej zostały opisane najważniejsze technologie / rozwiązania użyte w projekcie wraz z przykładem zakresu pracy, który dotyczą. W częśc niektórych zastosowanych rozwiązań wchodzą pomniejsze biblioteki, które wykorzystując nadrzędne rozwiązanie implementują dodatkowe funkcjonalności. Te pomniejsze biblioteki, nie zostały w jawny sposób opisane, gdyż często ich wkład ogranicza się jedynie do formy interpretacji kodu lub formy w jaki jest on napisany. Ich spis znajduje się w postaci tabel w odpowiednich paragrafach.
+
 \subsubsection{Preprocessor Sass}
-Język Sass i preprocessor z nim związany \cite {SASS} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
+Język Sass i preprocessor z nim związany \cite {SASS} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności, takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
 
 \subsubsection{React.js}
-React.js \cite {React} został wykorzystany w aplikacji jako podstawa warstwy frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScriptowych, dzięki czemu kod napisany jest bardzo modularny i reużywalny.
+React.js \cite {React} został wykorzystany w aplikacji jako podstawa warstwy frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScriptowych, dzięki czemu kod napisany jest bardzo modularny i reużywalny. Do samego frameworka zostały użyte dodatkowe biblioteki.
+\\
+\label{Tab. 1 - Biblioteki wykorzystujące React}
+\begin{tabularx}{\textwidth}{|l|l|}
+  \hline
+    \textbf{Nazwa} & \textbf{Wersja} \\
+  \hline
+    react & 16.0.0 \\
+  \hline
+   	react-dom & 16.0.0 \\
+  \hline
+  	react-fa & 5.0.0 \\
+   \hline
+   	react-moment & 0.6.5 \\
+   \hline
+  	react-redux & 5.0.6 \\
+   \hline
+  	react-router & 4.2.0 \\
+   \hline
+  	react-router-dom & 4.2.2 \\
+   \hline
+  	react-sortable-hoc & 0.6.8 \\
+   \hline
+   reselect & 3.0.1 \\
+   \hline
+\end{tabularx}
 
 \subsubsection{Redux}
-Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności.
+Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności. Wraz z samym rozszerzeniem używane są dodatkowe biblioteki wspomagające pracę Redux.
+\\
+\label{Tab. 2 - Biblioteki wykorzystujące Redux}
+\begin{tabularx}{\textwidth}{|l|l|}
+   \hline
+    \textbf{Nazwa} & \textbf{Wersja} \\
+   \hline
+    redux-actions & 2.2.1 \\
+   \hline
+   	redux-axios & 0.0.2 \\
+   \hline
+  	redux-axios-middleware & 4.0.0 \\
+   \hline
+   	redux-devtools-extension & 2.13.2 \\
+   \hline
+  	redux-saga & 0.15.6 \\
+   \hline
+\end{tabularx}
 
 \subsubsection{Axios}
 Axios \cite {Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa)
@@ -209,23 +252,7 @@ Każdy zalogowany użytkownik otrzymuje dostęp do:
   \item[--] danych do projektu, na bazie którego wykonał akcję logowania(dane projektu + dane powiązane takie jak współużytkownicy, tablice, zadania)
 \end{itemize}
 \ \\
-Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT.
-
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\ \\
-\begin{tabularx}{\textwidth}{|l|X|l|}
-  \hline
-    \textbf{Nazwa} & \textbf{Zakres}  & \textbf{Referencja}\\
-  \hline
-    Express &
-    Wykorzystanie wbudowanych funkcji routingu do stworzenia ścieżek końcowych(routes) &
-    \cite{Express-routing}\\
-  \hline
-    JWT Token &
-    Proces zabezpieczenia ścieżek przed dostępem nieautoryzowanym &
-    \cite{JWT-route-secure} \\
-  \hline
-\end{tabularx}
+Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT\cite{JWT}.
 \newpage
 
 \subsubsection{Implementacja ścieżki dla warstwy frontendowej}
@@ -245,17 +272,6 @@ Wszyscy użytkownicy.
 \paragraph{Opis}\ \\
 Po odebraniu zapytania na adres główny domeny(adres nie posiadający żadnych parametrów w ścieżce URL) serwer(warstwa backendowa) wyświetla dokument o nazwie index.html jako statyczny plik. Rozszerzenie pliku sprawi, że nie potrzeba wykonywać dodatkowych akcji, ponieważ przeglądarka poprawnie zinterpretuje zawartą w pliku treść. \\
 Dodatkowo, aby zezwolić na pobieranie innych plików statycznych(obrazy, czcionki) przez przeglądarkę na podobnej zasadzie jest zaimplementowana ścieżka pod adresem '/static'.
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\ \\
-\begin{tabularx}{\textwidth}{|l|X|l|}
-  \hline
-    \textbf{Nazwa} & \textbf{Zakres}  & \textbf{Referencja}\\
-  \hline
-    Express &
-    Wykorzystanie wbudowanych funkcji routingu do stworzenia ścieżek końcowych(routes) serwujących pliki statyczne &
-    \cite{Express-static-routing}\\
-  \hline
-\end{tabularx}
 \newpage
 
 \subsubsection{Rejestracja nowego konta}
@@ -292,8 +308,6 @@ Wszystkie pola wymagają poprawnej walidacji pod kątem poprawności danych wed�
 Podczas próby wysłania formularza z błędnie wypełnionymi polami powinna pojawić się zawierająca treść błędów informacja.
 \\
 Gdy pola zostaną zweryfikowane(sprawdzone pod kątem poprawności) poprawnie, po wysłaniu formularza zostanie wprowadzony nowy rekord do bazy danych zawierający dane nowego użytkownika a sam użytkownik zostanie automatycznie przekierowany na stronę logowania. Dodatkowo, gdy wpisany projekt nie został odnaleziony w bazie danych tworzony jest nowy. Nowo stworzony użytkownik zostaje jednocześnie członkiem tego projektu.
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Logowanie do aplikacji}
@@ -326,8 +340,6 @@ Po wysłaniu formularza aplikacja sprawdza zgodność wprowadzonych danych z dan
 \end{itemize}
 \ \\
 W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage\cite {local_storage}.
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Wyświetlanie statystyk strony}
@@ -427,8 +439,6 @@ Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablica
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Dodawanie nowego zadania}
@@ -445,8 +455,6 @@ Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablica
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Sortowanie oraz organizacja zadań}
@@ -463,8 +471,6 @@ Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablica
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Widok zarządzania zadaniem}
@@ -498,8 +504,6 @@ Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablica
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Stworzenie nowej wiadomości tekstowej}
@@ -533,8 +537,6 @@ Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablica
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \subsubsection{Wysyłanie zaproszeń do projektu}
@@ -569,8 +571,6 @@ Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablica
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
 \paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
 \section{Wymagania niefunkcjonalne}
