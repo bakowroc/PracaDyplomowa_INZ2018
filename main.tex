@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{psfrag}
-
+\usepackage{float}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{enumitem}
@@ -58,13 +58,89 @@ W dalszych następstwach powstają kolejne problemy, wynikające już z samej il
 \section{Badanie rynku}
 Rynek aplikacji powiązanych z pracą w grupie jest bardzo obszerny. Zawierają się tam mniej lub bardziej złożone aplikacje(płatne oraz darmowe) a każda ma już spore grono odbiorców począwszy od wielkich korporacji oraz sporych rozmiarów firm po mniejsze zespoły studenckie oraz amatorskie (nie powiązane z żadną organizacją). Aplikacje te, pomimo działania w jednym obszarze biznesowym różnią się od siebie stopniem złożoności, obszerności, sposobem funkcjonowania, procesami w nich zachodzącymi czy zwyczajnie interfejsem i wyglądem.\\
 Na rynku nie ma jednak oprogramowania idealnego. Każde z istniejących już rozwiązań posiada szereg wad oraz zalet. Poniższe zestawienie w sposób subiektywny opisuje powszechnie stosowane rozwiązania.
-\subsection{Atlassian Jira}
+\subsection{Jira}
+\begin{labeling}{Producent}
+\item [Producent:] Atlassian
+\item [Link:] https://pl.atlassian.com/software/jira
+\end{labeling}
+\subsubsection{Plusy}
+\begin{itemize}
+  \item[--] Wspieranie metodologii pracy(SCRUM, AGILE)
+  \item[--] Integracja z wieloma systemami zewnętrznymi
+  \item[--] Stale rozwijany i usprawniany
+  \item[--] Bardzo popularny wśród większych firm, korporacji
+\end{itemize}
+\subsubsection{Minusy}
+\begin{itemize}
+  \item[--] Nieprzejrzysty i nieintuicyjny interfejs
+  \item[--] Rozwiązanie jest całkowicie płatne 
+  \item[--] Zbyt duża ilość funkcji powoduje dezorientację; Nie odpowiednie rozwiązanie przymałych projektach
+  \item[--] Ilość funkcjonalności oraz ruchu na serwerach powoduje, że aplikacja działa wolno.
+\end{itemize}
 
 \subsection{ZenHub}
+\begin{labeling}{Producent}
+\item [Producent:] Zenhub
+\item [Link:] https://www.zenhub.com/
+\end{labeling}
+\subsubsection{Plusy}
+\begin{itemize}
+  \item[--] Wspieranie metodologii pracy(AGILE)
+  \item[--] Integracja z wieloma systemami zewnętrznymi
+  \item[--] Bezpośrednie połączenie z systemem Github
+  \item[--] Stale rozwijany i usprawniany
+\end{itemize}
+\subsubsection{Minusy}
+\begin{itemize}
+  \item[--] Nieintuicyjny interfejs
+  \item[--] Darmowa wersja oprogramowania jest ograniczona
+  \item[--] By w pełni korzystać z serwisu należy wykupić licencję
+  \item[--] Zbyt duża ilość funkcji powoduje dezorientację; Nie odpowiednie rozwiązanie przy małych projektach
+  \item[--] Dostęp jedynie przez przeglądarkę na bezpośredniej stronie projektu w serwisie Github
+  \item[--] Przy publicznym projekcie(darmowym) na Github każdy ma wgląd do spisu zadań.
+  \item[--] Ograniczenie tylko dla Github
+\end{itemize}
 
 \subsection{Trello}
+\begin{labeling}{Producent}
+\item [Producent:] Trello (potem wykupione przez Atlassian)
+\item [Link:] https://trello.com/
+\end{labeling}
+\subsubsection{Plusy}
+\begin{itemize}
+  \item[--] Integracja z wieloma systemami zewnętrznymi
+  \item[--] Prosty w obsłudze
+  \item[--] Intuicyjny interfejs
+\end{itemize}
+\subsubsection{Minusy}
+\begin{itemize}
+  \item[--] Brak wsparcia dla metodologii pracy (SCRUM, AGILE itd.)
+  \item[--] Darmowa wersja oprogramowania jest ograniczona
+  \item[--] By w pełni korzystać z serwisu należy wykupić licencję
+  \item[--] Projekt po zmianie właściciela nie jest już rozwijany
+  \item[--] Niektóre integracje są bardzo ograniczone i niewystarczające
+\end{itemize}
 
 \subsection{Meister Task}
+\begin{labeling}{Producent}
+\item [Producent:] Meister Labs
+\item [Link:] https://www.meistertask.com/
+\end{labeling}
+\subsubsection{Plusy}
+\begin{itemize}
+  \item[--] Integracja z wieloma systemami zewnętrznymi
+  \item[--] Bardzo przejrzysty i intuicyjny interfejs
+  \item[--] Świetne rozwiązania niespotykane nigdzie indziej(grafy)
+\end{itemize}
+\subsubsection{Minusy}
+\begin{itemize}
+  \item[--] Brak wsparcia dla metodologii pracy (SCRUM, AGILE itd.)
+  \item[--] Darmowa wersja oprogramowania jest bardzo ograniczona
+  \item[--] Integracje dla wersji bezpłatnej są słabej jakości
+  \item[--] By w pełni korzystać z serwisu należy wykupić licencję
+  \item[--] Projekt wprowadza zmiany bardzo rzadko
+  \item[--] Niektóre integracje są bardzo ograniczone i niewystarczające
+\end{itemize}
 
 \section{Zastosowane technologie}
 \subsection{Struktura aplikacji}
@@ -104,13 +180,13 @@ System bazodanowy wykorzystuje implementację MongoDB \cite{MongoDB}, który to 
 Poniżej zostały opisane najważniejsze technologie / rozwiązania użyte w projekcie wraz z przykładem zakresu pracy, który dotyczą. W częśc niektórych zastosowanych rozwiązań wchodzą pomniejsze biblioteki, które wykorzystując nadrzędne rozwiązanie implementują dodatkowe funkcjonalności. Te pomniejsze biblioteki, nie zostały w jawny sposób opisane, gdyż często ich wkład ogranicza się jedynie do formy interpretacji kodu lub formy w jaki jest on napisany. Ich spis znajduje się w postaci tabel w odpowiednich paragrafach.
 
 \subsubsection{Preprocessor Sass}
-Język Sass i preprocessor z nim związany \cite {SASS} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności, takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
+Język Sass i preprocessor z nim związany \cite {Sass} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności, takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
 
 \subsubsection{React.js}
 React.js \cite {React} został wykorzystany w aplikacji jako podstawa warstwy frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScriptowych, dzięki czemu kod napisany jest bardzo modularny i reużywalny. Do samego frameworka zostały użyte dodatkowe biblioteki.
-\\
-\label{Tab. 1 - Biblioteki wykorzystujące React}
-\begin{tabularx}{\textwidth}{|l|l|}
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|X|X|}
   \hline
     \textbf{Nazwa} & \textbf{Wersja} \\
   \hline
@@ -133,12 +209,14 @@ React.js \cite {React} został wykorzystany w aplikacji jako podstawa warstwy fr
    reselect & 3.0.1 \\
    \hline
 \end{tabularx}
+\caption{Biblioteki wykorzystywane przez React}
+\end{table}
 
 \subsubsection{Redux}
 Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności. Wraz z samym rozszerzeniem używane są dodatkowe biblioteki wspomagające pracę Redux.
-\\
-\label{Tab. 2 - Biblioteki wykorzystujące Redux}
-\begin{tabularx}{\textwidth}{|l|l|}
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|X|X|}
    \hline
     \textbf{Nazwa} & \textbf{Wersja} \\
    \hline
@@ -153,79 +231,192 @@ Redux \cite {Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą org
   	redux-saga & 0.15.6 \\
    \hline
 \end{tabularx}
+\caption{Biblioteki wykorzystywane przez Redux}
+\end{table}
+
 
 \subsubsection{Axios}
-Axios \cite {Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa)
+Axios \cite {Axios} to biblioteka JavaScriptowa, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa) w celu pobrania danych w notacji JSON.
 
 \subsubsection{Socket.io}
-Socket.io \cite {Socket.io} to biblioteka implementująca koncepcję Web Socket \cite {web_socket}. ZOstała użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
+Socket.io \cite {SocketIO} to biblioteka implementująca koncepcję Web Socket \cite {Keyword_Websocket}. ZOstała użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce, eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
 
 \subsubsection{Sortable.js}
-Bilbioteka Sortable.js \cite{Sortable} to obszerne narzędzie do zarządzania elementami typu "przeciągnij oraz upuść"(tzw. Drag and Drop). Została zaimplementowana w celu podniesienia poziomu User Experience \cite {UX}.
+Bilbioteka Sortable.js \cite{SortableJS} to obszerne narzędzie do zarządzania elementami typu "przeciągnij oraz upuść"(tzw. Drag and Drop). Została zaimplementowana w celu podniesienia poziomu User Experience \cite {Keyword_UserExperience}.
 
 \subsubsection{Moment.js}
-Biblioteka ta \cite {Moment} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
+Biblioteka ta \cite {MomentJS} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
 
 \subsubsection{Node.js}
-Struktura oparta o Node.js \cite {Node.js} jest wykorzystywana jako główny filar warstwy backendowej. Framework ten jest odpowiedzialny za całą obsługę serwera oraz wcześniej opisanych (patrz: warstwa backendowa) funkcjonalności. Dodatkowo oprogramowanie oferuje system zarządzania zależnościami (NPM, patrz: wykorzystane narzędzia).
+Struktura oparta o Node.js \cite {NodeJS} jest wykorzystywana jako główny filar warstwy backendowej. Framework ten jest odpowiedzialny za całą obsługę serwera oraz wcześniej opisanych (patrz: warstwa backendowa) funkcjonalności. Dodatkowo oprogramowanie oferuje system zarządzania zależnościami (NPM, patrz: wykorzystane narzędzia).
 
 \subsubsection{Express}
 Express \cite {Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js o dodatkowe funkcjonalności automatyzujące oraz usprawniające pisanie kodu.
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|X|X|}
+   \hline
+    \textbf{Nazwa} & \textbf{Wersja} \\
+   \hline
+     body-parser & 1.17.2 \\
+   \hline
+     jsonwebtoken & 8.1.0 \\
+   \hline
+  	 jwt-decode & 2.2.0 \\
+   \hline
+   	 mongoose & 4.11.8 \\
+   \hline
+\end{tabularx}
+\caption{Biblioteki wykorzystywane przez Express}
+\end{table}
+
 \subsection{Wykorzystane narzędzia}
 
 \subsubsection{Node Package Manager (NPM)}
 Node Package Manager (NPM) \cite {NPM} jest dostarczanym wraz z oprogramowaniem Node.js narzędziem do zarządzania zależnościami projektowymi. Przez te pojęcie rozumie się wszelkie zewnętrzne paczki dodatkowych bibliotek, rozszerzeń programistycznych . NPM pozwala na proste ich dodawanie, usuwanie oraz aktualizację w zależności od potrzeb (np. dotyczących wersji).
 
 \subsubsection{Yarn}
-Yarn \cite {YARN} jest dodatkową paczką wspierającą oraz rozszerzającą NPM o funkcjonalności głównie dotyczących  zainstalowanych już paczek. Jest wykorzystywany w projekcie do kontrolowania wersji zależności (automatyzacja wyszukiwania nieaktualnych oraz ich aktualizacja za pomocą jednej komendy). Dzięki YARN można także sprawdzić, które paczki są nieużywane w projekcie (co determinuje możliwość ich usunięcia).
+Yarn \cite {Yarn} jest dodatkową paczką wspierającą oraz rozszerzającą NPM o funkcjonalności głównie dotyczących  zainstalowanych już paczek. Jest wykorzystywany w projekcie do kontrolowania wersji zależności (automatyzacja wyszukiwania nieaktualnych oraz ich aktualizacja za pomocą jednej komendy). Dzięki YARN można także sprawdzić, które paczki są nieużywane w projekcie (co determinuje możliwość ich usunięcia).
 
 \subsubsection{Sass Lint}
-Zależność ta \cite {SASS_LINT} wspomaga proces zachowania czystego, bardziej czytelniejszego kodu napisanego w preprocessorze  Sass poprzez stosowanie (wcześniej zdefiniowanych) zasad dotyczących np. ilości spacji, odstępów tabulatora, sposobu zapisania reguł. Proces ten nosi nazwę lintowanie (z ang. lintering).
+Zależność ta \cite {SassLint} wspomaga proces zachowania czystego, bardziej czytelniejszego kodu napisanego w preprocessorze  Sass poprzez stosowanie (wcześniej zdefiniowanych) zasad dotyczących np. ilości spacji, odstępów tabulatora, sposobu zapisania reguł. Proces ten nosi nazwę lintowanie (z ang. lintering).
 
 \subsubsection{TS Lint}
-TypeScript Linter \cite {TS_LINT} ma analogiczne zadanie co wyżej wymieniony Sass Lint, jednak dotyczy kodu zapisanego w języku TypeScript.
+TypeScript Linter \cite {TSLint} ma analogiczne zadanie co wyżej wymieniony Sass Lint, jednak dotyczy kodu zapisanego w języku TypeScript.
 
 \subsubsection{Webpack}
-Webpack \cite {WEBPACK} jest narzędziem sprawującym kontrolę nad automatyzacją wielu zadań dotyczących kodu oraz środowiska programistycznego. DO głównych zadań należy przede wszystkim transpilacja \cite {TRANSPILE}, czyli tłumaczenia języka napisanego przez programistę na inną jego wersję, co tu przekłada się na przepisywanie kodu w standardzie ES6(który nie jest zrozumiały przez przeglądarki) na standard ES5, który jest w pełni kompatybilny z interpretatorem przeglądarek. Kod napisany w preprocesorze SASS również jest niezrozumiały dla przeglądarek, toteż webpack zajmuje się transpilacją na język kaskadowych arkuszy stylów CSS.
+Webpack \cite {Webpack} jest narzędziem sprawującym kontrolę nad automatyzacją wielu zadań dotyczących kodu oraz środowiska programistycznego. DO głównych zadań należy przede wszystkim transpilacja \cite {Keyword_Transpile}, czyli tłumaczenia języka napisanego przez programistę na inną jego wersję, co tu przekłada się na przepisywanie kodu w standardzie ES6(który nie jest zrozumiały przez przeglądarki) na standard ES5, który jest w pełni kompatybilny z interpretatorem przeglądarek. Kod napisany w preprocesorze SASS również jest niezrozumiały dla przeglądarek, toteż webpack zajmuje się transpilacją na język kaskadowych arkuszy stylów CSS.
 \\
-W narzędziu tym możemy zdefiniować dodatkowe reguły dotyczące pliku wyjściowego, min: łączenie wszystkiego w jeden plik (bundle), zmiana nazw zmiennych w celu zaoszczędzenia miejsca, zmiana nazw klas CSS wg. ustalonego schematu oraz wiele innych.
+W narzędziu tym możemy zdefiniować dodatkowe reguły dotyczące pliku wyjściowego, min: łączenie wszystkiego w jeden plik (bundle), zmiana nazw zmiennych w celu zaoszczędzenia miejsca, zmiana nazw klas CSS wg. ustalonego schematu oraz wiele innych. 
+\\
+Webpack wykorzystuje wiele gotowych rozwiązań podczas swojej pracy.
 
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|X|X|}
+   \hline
+    \textbf{Nazwa} & \textbf{Wersja} \\
+   \hline
+     awesome-typescript-loader & 3.2.3 \\
+   \hline
+     source-map-loader & 0.2.2 \\
+   \hline
+     style-loader & 0.19.0 \\
+   \hline
+  	 to-string-loader & 1.1.5 \\
+   \hline
+   	 ts-loader & 2.3.4 \\
+   \hline
+   	 sass-loader & 6.0.6 \\
+   \hline
+   	 raw-loader & 0.5.1 \\
+   \hline
+   	 node-sass & 4.5.3 \\
+   \hline
+   	 css-loader & 0.28.7 \\
+   \hline
+     extract-text-webpack-plugin & 3.0.1 \\
+   \hline
+     file-loader & 1.1.5 \\
+   \hline
+     html-webpack-plugin & 2.30.1 \\
+   \hline
+     url-loader & 0.6.2 \\
+   \hline
+     webpack-node-externals & 1.6.0 \\
+   \hline
+\end{tabularx}
+\caption{Biblioteki wykorzystywane przez Webpack}
+\end{table}
+   
 \subsubsection{Nodemon}
-Nodemon \cite {NODEMON} jest wsparciem do zarządzania serwerem podczas procesu programowania. Rozwiązuje on problem potrzeby ciągłego odświeżania domyślnego serwera dostarczanego przez oprogramowanie Node.js w chwili zmiany pliku, który jest aktualnie przetwarzany. Nodemon w prosty sposób wprowadza nasłuch na zmiany tego pliku, automatycznie restartując serwer gdy takowe się pojawią.
+Nodemon \cite {Nodemon} jest wsparciem do zarządzania serwerem podczas procesu programowania. Rozwiązuje on problem potrzeby ciągłego odświeżania domyślnego serwera dostarczanego przez oprogramowanie Node.js w chwili zmiany pliku, który jest aktualnie przetwarzany. Nodemon w prosty sposób wprowadza nasłuch na zmiany tego pliku, automatycznie restartując serwer gdy takowe się pojawią.
 
 \subsubsection{GIT}
 System kontroli wersji GIT \cite {GIT} w folderze plików aplikacji tworzy repozytorium, w którym możemy tworzyć gałęzie (branch) zawierające tylko zmiany na plikach wykonanych w jej obrębie. Przekłada się to na wysokiej jakości kontrolę nad zawartością kodu oraz zwiększeniu bezpieczeństwa wynikającego z błędu programistycznego. 
 
 \subsubsection{Travis CI}
-Travis CI \cite {TRAVIS} jest to narzędzie typu Continous Integration \cite {CI} pozwalające na kontrolowanie wrzucanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite {webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te tapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze z zastosowaniem nowych funkcjonalności. \\
+Travis CI \cite {TravisCI} jest to narzędzie typu Continous Integration \cite {Keyword_CI} pozwalające na kontrolowanie wrzucanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite {Keyword_Webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te tapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze z zastosowaniem nowych funkcjonalności. \\
 Zapewnia to, że wykonany do pewnego etapu projekt jest w pełni funkcjonalny, wolny od błędów programistycznych czy kodowych. Travis CI wspiera wysyłanie powiadomień (np. e-mail) w chwili gdy którykolwiek z etapów nie zostanie wykonany poprawnie co minimalizuje czas potrzebny na naprawę aplikacji.
 
 \subsubsection{Heroku}
 Heroku \cite{Heroku} jest to darmowa platforma do uruchamiania aplikacji na serwerze(dostarczanym przez Heroku). Dzięki temu projekt jest możliwy do podglądu online. Dodatkowo Heroku tworzy repozytorium wraz z kodem aplikacji, co zabezpiecza kod przez utraceniem (głównym repozytorium pozostaje Github). Platforma ta dostarcza również wgląd w statystyki aplikacji oraz logi zawierające takie informacje jak status aplikacji, historię nawiązywanych połączeń oraz zdarzeń. Usprawnia to proces ewentualnego wyszukiwania błędów programistycznych.
 
+\subsubsection{Baza danych seriwsu mLab}
+W projekcie została wykorzystana darmowa implementacja bazy danych MongoDB udostępniana przez serwis mLab(https://mlab.com/). Nie było zatem konieczne instalowania serwisu bazy danych na komputerze lokalnym(podczas procesu programowania). Jednocześnie dane używane podczas implementacji są takie same jak w chwili udostępnienie podglądu online na platformie Heroku.
+
 \subsubsection{Github}
 Github (http://www.github.com) jest internetową platformą pozwalającą na magazynowanie kodu aplikacji za pomocą oprogramowania GIT. Stosowanie tego rozwiązania zabezpiecza kod aplikacji przed utraceniem wskutek czynników trzecich. Zapewnia także jej mobilność(możliwość uruchomienia oraz programowania na dowolnym urządzeniu bez potrzeby angażowania fizycznych nośników danych).
+\\
+\\
+
+\begin{table}[H]
+\begin{tabularx}{\textwidth}{|X|X|}
+   \hline
+    \textbf{Nazwa} & \textbf{Wersja} \\
+   \hline
+      axios & 0.16.2 \\
+   \hline
+     express & 4.15.4 \\
+   \hline
+  	  lodash & 4.17.4 \\
+   \hline
+   	  moment & 2.19.1 \\
+   \hline
+   	 normalize.css & 7.0.0 \\
+   \hline
+   	 normalize.css & 7.0.0 \\
+   \hline
+   	 react & 16.0.0 \\
+   \hline
+   	 redux & 3.7.2 \\
+   \hline
+   	 sass-lint & 1.12.0 \\
+   \hline
+   	 socket.io & 2.0.4 \\
+   \hline
+   	  socket.io-client  & 2.0.4 \\
+   \hline
+      sortablejs & 1.6.1 \\
+   \hline
+     tslint & 5.7.0 \\
+   \hline
+      tslint-react & 3.2.0 \\
+   \hline
+      typescript & 2.5.3 \\
+   \hline
+     webpack & 3.7.1 \\
+   \hline
+\end{tabularx}
+\caption{Spis wersji wykorzystanych rozwiązań/narzędzi oraz innych wykorzystywanych globalnie paczek(nie uwzględnionych w powyższym zestawieniu).}
+\end{table}
 
 \chapter{Fakty i założenia związane z projektem }
-
+\begin{itemize}
+  \item Do prawidłowego funkcjonowania aplikacji potrzebne jest połączenie z Internetem.
+  \item Niektóre sieci nie zezwalają na połączenia z serwisem Heroku oraz mLab.
+  \item Aby korzystać z niektórych narzędzi należy posiadać konta w niektórych wymienionych serwisach.
+  \item Żadne z zastosowanych rozwiązań / narzędzi nie jest płatne.
+  \item Kod aplikacji znajduje się w publicznym repozytorium serwisu Github.
+  \item Aplikacja jest napisana w języku angielskim.
+\end{itemize}
 \chapter{Wymagania dotyczące projektu}
 
 \section{Wymagania funkcjonalne}
 
-\subsubsection{Implementacja API}
+\subsection{Implementacja API}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 1
 \item [Typ:] Wymagane
 \item [Powiązania:] -
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 W celu udostępnienia danych za pomocą struktury systemu API należy stworzyć ścieżki(routes), na adres których wysyłane są zapytania HTTP w celu otrzymania wiadomości zwrotnej zawierającej odpowiedni fragment danych, wyspecyfikowany w ścieżce url.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy oraz dla części danych użytkownicy zalogowani, posiadający odpowiednie uprawnienia, zdeterminowane odpowiednimi przynależnościami do struktur.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 Po odebraniu zapytania na konkretnym adresie warstwa backendowa uruchamia wcześniej zaimplementowane funkcje, które łączą się z warstwą bazodanową i w zależności od typu żądania wykonuje odpowiednie akcje:
 \begin{itemize}
   \item[--] \textbf{GET}: Po odebraniu zapytania funkcja zwraca wszystkie rekordy żądanego typu a następnie są one wysyłane jako wiadomość zwrotna.
@@ -252,42 +443,42 @@ Każdy zalogowany użytkownik otrzymuje dostęp do:
   \item[--] danych do projektu, na bazie którego wykonał akcję logowania(dane projektu + dane powiązane takie jak współużytkownicy, tablice, zadania)
 \end{itemize}
 \ \\
-Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT\cite{JWT}.
+Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT\cite{Keyword_JWTToken}.
 \newpage
 
-\subsubsection{Implementacja ścieżki dla warstwy frontendowej}
+\subsection{Implementacja ścieżki dla warstwy frontendowej}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 2
 \item [Typ:] Wymagane
 \item [Powiązania:] -
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Aby możliwa była obsługa aplikacji przy pomocy interfejsu graficznego, warstwa backendowa musi posiadać informacje o konieczności wyświetlenia odpowiedniego pliku na konkretnej ścieżce.
 
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 Po odebraniu zapytania na adres główny domeny(adres nie posiadający żadnych parametrów w ścieżce URL) serwer(warstwa backendowa) wyświetla dokument o nazwie index.html jako statyczny plik. Rozszerzenie pliku sprawi, że nie potrzeba wykonywać dodatkowych akcji, ponieważ przeglądarka poprawnie zinterpretuje zawartą w pliku treść. \\
 Dodatkowo, aby zezwolić na pobieranie innych plików statycznych(obrazy, czcionki) przez przeglądarkę na podobnej zasadzie jest zaimplementowana ścieżka pod adresem '/static'.
 \newpage
 
-\subsubsection{Rejestracja nowego konta}
+\subsection{Rejestracja nowego konta}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 3
 \item [Typ:] Wymagane
 \item [Powiązania:] -
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Aby korzystać z funkcjonalności jakie oferuje aplikacja należy posiadać założone konto. Korzystanie z aplikacji wymaga uwierzytelnienia. Wiele funkcjonalności użytkowych musi być powiązane z inicjatorem zdarzenia / wykonanej akcji, takie jak przypisanie użytkownika jako autora do pewnych stworzonych struktur.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Potencjalni użytkownicy aplikacji, użytkownicy nieposiadający zarejestrowanego konta w serwisie
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 W celu umożliwienia korzystania z aplikacji nowym użytkownikom należy stworzyć formularz rejestracyjny na nowej podstronie z wymaganymi polami:
 \begin{itemize}
 	\item[--] Nazwa nowego lub istniejącego projektu
@@ -310,20 +501,20 @@ Podczas próby wysłania formularza z błędnie wypełnionymi polami powinna poj
 Gdy pola zostaną zweryfikowane(sprawdzone pod kątem poprawności) poprawnie, po wysłaniu formularza zostanie wprowadzony nowy rekord do bazy danych zawierający dane nowego użytkownika a sam użytkownik zostanie automatycznie przekierowany na stronę logowania. Dodatkowo, gdy wpisany projekt nie został odnaleziony w bazie danych tworzony jest nowy. Nowo stworzony użytkownik zostaje jednocześnie członkiem tego projektu.
 \newpage
 
-\subsubsection{Logowanie do aplikacji}
+\subsection{Logowanie do aplikacji}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 4
 \item [Typ:] Wymagane
 \item [Powiązania:] 3
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Zalogowanie się do serwisu zapewnia dostęp do wszystkich funkcjonalności aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 Proces logowania polega na wypełnieniu formularza na stronie głównej następującymi danymi:
 \begin{itemize}
 	\item[--] Nazwa projektu
@@ -339,23 +530,23 @@ Po wysłaniu formularza aplikacja sprawdza zgodność wprowadzonych danych z dan
 	\item[--] Użytkownik należy do projektu
 \end{itemize}
 \ \\
-W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage\cite {local_storage}.
+W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage\cite {Keyword_LocaLStorage}.
 \newpage
 
-\subsubsection{Wyświetlanie statystyk strony}
+\subsection{Wyświetlanie statystyk strony}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 5
 \item [Typ:] Wymagane
 \item [Powiązania:] 4
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Wgląd do ilości zawartej w projekcie treści takiej jak ilośc zadań, stworzonych tablic czy użytkowników  usprawnia proces pracy z użyciem aplikacji. Posiadanie wiedzy dotyczącej obecnej sytuacji projektu pomaga szybciej oszacować sytuację oraz etap, w którym projekt się znajduje, co jednoznacznie przekłada się na możliwość dostosowania pracy zalogowanego użytkownika do współpracowników.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami oraz zadaniami dotyczącymi projektu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 Strona statystyk ma formę kilku tabel zawierających ostatnie pięć rekordów dotyczących odpowiedniej treści w niej prezentowanej, takiej jak lista ostatnio dodanych użytkowników oraz listę ostatnio stworzonych zadań. Pod każdą z tabel znajduje się przycisk sugerujący rozszerzenie ilości treści prezentowanej w danej tabeli.
 \\
 Dla tabeli zawierającej zadania przycisk ten przekierowuje użytkownika na podstronę z tablicami oraz zadaniami (patrz ID: 6). 
@@ -365,39 +556,39 @@ Dla tabeli zawierającej listę użytkowników po naciśnięciu owego przycisku 
 Na stronę statystyk składają się również trzy boksy z ilością odpowiednich danych. Osobny boks dla: liczby zadań, liczby tablic, liczby użytkowników.
 \newpage
 
-\subsubsection{Strona z tablicami oraz zadaniami}
+\subsection{Strona z tablicami oraz zadaniami}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 6
 \item [Typ:] Wymagane
 \item [Powiązania:] 4
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 Projekt domyślnie nie posiada żadnych tablic oraz zadań, toteż strona odwiedzana po raz pierwszy prezentuje jedynie przycisk umożliwiający dodanie nowej tablicy wraz z widoczną informacją odnośnie potrzeby wykonania tej akcji. \\
 Strona ze stworzonymi już tablicami oraz zadaniami ma formę kilku kolumn, które reprezentują kolejne stworzone tablice. Ilość kolumn jest zdeterminowana ilością tablic. Każda kolumna składa się z ikony, nazwy oraz panelu opcji tablicy. W panelu rozwijanym znajduje się opcja usunięcia tablicy. \\
 Poniżej w formie listy znajdują się stworzone zadania, wraz z tytułem oraz skróconym opisem do 120 widocznych znaków. Jeśli tablica nie posiada przypisanych zadań wówczas widoczny jest komunikat o konieczności stworzenia lub przypisania już istniejącego(z innej tablicy). Na dole każdej listy znajduje się przycisk umożliwiający dodanie nowego zadania.
 \newpage
 
-\subsubsection{Dodawanie nowej tablicy}
+\subsection{Dodawanie nowej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 7
 \item [Typ:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Wymagane jest dostosowanie środowiska aplikacji do potrzeb projektu w celu zapewnienia optymalnej pracy.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 Po naciśnięciu odpowiedniego przycisku otworzy się formularz zawierający pola z:
 \begin{itemize}
   \item[--] Nazwą nowej tablicy
@@ -407,90 +598,90 @@ Po naciśnięciu odpowiedniego przycisku otworzy się formularz zawierający pol
 Wymagane jest aby pole z nazwą nowej tablicy było wypełnione. Gdy nie zostanie wybrana żadna ikona jest wybierana ikona domyślna. Gdy wystąpił błąd pojawia się informacja zawierająca jego treść. W przypadku sukcesu zostaje wysłane odpowiednie zapytanie do API, zawierające dane tablicy oraz dołączone z bazy Local Storage informacje dotyczące nazwy projektu. W warstwie backendowej następuje proces wprowadzenia nowej tablicy do bazy danych.
 \newpage
 
-\subsubsection{Edycja istniejącej tablicy}
+\subsection{Edycja istniejącej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 8
 \item [Typ:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
-Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
+\subsubsection{Przesłanka}
+W czasie projektu mogą wystąpić zmiany w organizacji i strukturze tablic.
 
-\paragraph{Interesariusze}\ \\
-Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
+\subsubsection{Interesariusze}
+Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu.
 
-\paragraph{Opis}\ \\
-
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
+\subsubsection{Opis}
+Po naciśnięciu nazwy tablicy w widoku tablic pojawi się kursor umożliwiający dynamiczną zmianę nazwy tablicy(edycja za pomocą pola tekstowego). Pole z nazwą tablicy nie może być puste. Tablica zostanie zaktualizowana w momencie kliknięcia poza obszar nazwy lub klawisza Enter.
+\\
+Po kliknięciu na ikonę przy nazwie tablicy pojawi się lista rozwijana z dostępnymi ikonami do wyboru. Po kliknięciu na którąś z nich ikona zostanie od razu zaktualizowana a lista zamknięta. Listę można zamknąć też bez wbierania ikony poprzez kliknięcie poza jej obszar.
 \newpage
 
-\subsubsection{Usuwanie istniejącej tablicy}
+\subsection{Usuwanie istniejącej tablicy}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 9
 \item [Typ:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 \newpage
 
-\subsubsection{Dodawanie nowego zadania}
+\subsection{Dodawanie nowego zadania}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 10
 \item [Typ:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 \newpage
 
-\subsubsection{Sortowanie oraz organizacja zadań}
+\subsection{Sortowanie oraz organizacja zadań}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 11
 \item [Typ:] Wymagane
 \item [Powiązania:] 6
 \end{labeling}
 
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 \newpage
 
-\subsubsection{Widok zarządzania zadaniem}
+\subsection{Widok zarządzania zadaniem}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 12
 \item [Typ:] Wymagane
 \item [Powiązania:] 10
 \end{labeling}
-\paragraph{Przesłanka}\ \\
+\subsubsection{Przesłanka}
 Głównym celem aplikacji jest umożliwienie tworzenia oraz zarządzania tablicami i zadaniami dotyczącymi projektu. Odpowiednia ich wizualizacja jest konieczna do zapewnienia intuicyjnej oraz prostej pracy w aplikacji.
 
-\paragraph{Interesariusze}\ \\
+\subsubsection{Interesariusze}
 Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogowani do serwisu. Użytkownicy powiązani tym samym projektem.
 
-\paragraph{Opis}\ \\
+\subsubsection{Opis}
 
-\paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
-\subsubsection{Widok czatu wiadomości tekstowych}
+\subsection{Widok czatu wiadomości tekstowych}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 13
 \item [Typ:] Wymagane
@@ -506,7 +697,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \paragraph{Opis}\ \\
 \newpage
 
-\subsubsection{Stworzenie nowej wiadomości tekstowej}
+\subsection{Stworzenie nowej wiadomości tekstowej}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 14
 \item [Typ:] Wymagane
@@ -523,7 +714,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
-\subsubsection{Strona profilu użytkownika}
+\subsection{Strona profilu użytkownika}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 15
 \item [Typ:] Wymagane
@@ -539,7 +730,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \paragraph{Opis}\ \\
 \newpage
 
-\subsubsection{Wysyłanie zaproszeń do projektu}
+\subsection{Wysyłanie zaproszeń do projektu}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 16
 \item [Typ:] Wymagane
@@ -557,7 +748,7 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 \paragraph{Wykorzystane narzędzia oraz technologie}\ \\
 \newpage
 
-\subsubsection{System powiadomień}
+\subsection{System powiadomień}
 \begin{labeling}{Nr wymagania}
 \item [Nr wymagania:] 17
 \item [Typ:] Niewymagane
@@ -575,14 +766,44 @@ Wszyscy użytkownicy posiadający aktywne konto w serwisie, jednocześnie zalogo
 
 \section{Wymagania niefunkcjonalne}
 \subsection{Wymaganie estetyczne}
+\begin{itemize}
+  \item Styl aplikacji musi być utrzymany w konwencji Material Design\cite{Material}
+  \item Aplikacja musi spełniać standardy narzucone przez serwis MDN\cite {MDN_HTML}\cite {MDN_CSS} dotyczących użycia znaczników HTML5 oraz CSS3.
+  \item Interfejs aplikacji musi spełniać podstawowe założenia ideii User Experience oraz User Interface\cite {Keyword_UserInterface}
+  \item Aplikacja zakłada przejrzystość struktury oraz estetykę interfejsu.
+\end{itemize} 
+
 \subsection{Wymaganie dotyczące ergonomii i wygody}
+\begin{itemize}
+  \item Korzystanie z aplikacji nie powinno wymagać znajomości użytych języków programistycznych czy ogólnie pojętego programowania
+  \item Wszelkie interakcje ze strukturą interfejsu aplikacji powinny przebiegać dynamicznie, bez zbędnych przekierowań na podstrony  czy oczekiwania na rezultat wykonanych akcji.
+\end{itemize}
 \subsection{Wymagania dotyczące skalowalności i rozszerzalności}
+\begin{itemize}
+  \item Dodawanie nowych funkcjonalności do aplikacji nie powinno być procesem skomplikowanym, ingerującym za bardzo w napisany kod
+  \item Struktura MongoDB jest stworzona z myślą o przetrzymywaniu dużej ilości danych, toteż graniczne wartości liczbowe dotyczące ilości konkretnych danych nie są możliwe do ustalenia. Należy jednak pamiętać, że w celu obsługi dużej ilości użytkowników przetwarzających dane wymagany jest również serwer o odpowiednio dobranej mocy obliczeniowej.
+  \item Użyte środowisko programsityczne nie jest przygotowane do obsługi aplikacji w wersji finalnej. Wymaganym jest zatem, aby finalna wersja aplikacji była zaimplementowana w komercyjnym, odpowiednio dobranym środowisku.
+\end{itemize}
 \subsection{Wymagania dotyczące bezpieczeństwa korzystania z systemu}
+\begin{itemize}
+  \item System bazodanowy musi być odpowiednio zabezpieczony przed ingerencją osób nieautoryzowanych. Wymaga się zatem aby hasło zabezpieczające posiadało znaki różnego typu(litery, cyfry, znaki specjalne)
+  \item Wymagane jest aby baza danych aplikacji w wersji finalnej była zaimplementowana w odpowiednio przygotowanym środowisku, oferującym rozwiązania wysokiej jakości oraz zabezpieczenia w postaci kopi zapasowych. Nie zaleca się stosowania rozwiązań darmowych, w których bezpieczeństwo przed utratą danych jest niezapewnione.
+  \item W bazie danych nie mogą być przetrzymywane jawne hasła. Należy zapewnić zabezpieczenie w postaci użycia funkcji korzystającej z MD5\cite {MD5} lub pochodnej.
+\end{itemize}
 \chapter{Projekt aplikacji}
 \section{Opis aplikacji}
 \section{Instrukcja korzystania}
 \chapter{Podsumowanie}
+Implementacja projektu nie została w pełni ukończona jednak udało się spełnić większość wymagań funkcjonalnych i niefunckjonalnych, głównie tych o priorytecie wymaganym. Wymagań o priorytecie niższym nie udało się zaimplementować wcale, jednak są one solidną podstawą na dalszą część rozwoju aplikacji w przyszłości
+\\
+Powodem był zarówno niewystarczający czas poświęcony na proces implementacyjny jak i wiele problemów napotkanych w czasie realizacji (programistycznych oraz innego typu).
+\section{}
 \section{Problemy zaistniałe podczas implementacji}
+Poniżej znadują się najważniejsze problemy napotkane podczas realizacji projektu dyplomowego. Mają one charakter ogólny, nie zawierają konkretnych części(np. funkcji w kodzie, dni, wydarzeń):
+\begin{itemize}
+  \item Brak wystarczającej ilości czasu spowodowany innymi obowiązkami w czasie realizacji projektu, takie jak praca czy obowiązki szkolne.
+  \item Występowanie błędów dotyczących użycia gotowych rozwiązań, brak pomysłów i wiedzy na ich rozwiązanie co spowodowane było nieznajomością wszystkich wybranych struktur, technologi, narzędzi(co jednocześnie jest powiązane z brakiem wystarczającej ilości czasu na nauczenie się ich).
+\end{itemize}
 \section{Plany rozwojowe projektu}
 \addcontentsline{toc}{chapter}{Bibliografia}
 \bibliography{bibliografia}
