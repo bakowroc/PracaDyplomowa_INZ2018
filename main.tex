@@ -25,7 +25,7 @@
 \title{Projekt i implementacja aplikacji internetowy organizator pracy grupowej }
 \engtitle{Design and implementation of web organizer for group collaboration}
 \author{Maciej Bakowicz}
-\supervisor{dr hab. inż. Krzysztof Walkowiak, prof. PWr, W-4}
+\supervisor{prof. dr hab. inż. Krzysztof Walkowiak, W-4}
 
 \field{Teleinformatyka (TIN)}
 \specialisation{Projektowanie sieci teleinformatycznych (TIP)}
@@ -39,15 +39,15 @@
 \tableofcontents 
 
 \chapter{Wstęp}  
-Niniejsza praca dyplomowa opisuje liczne problemy związane z zagadnieniami dotyczącymi pracy w grupie, takimi jak problem komunikacji, wzajemnego zrozumienia czy samej organizacji, struktury a także formy kooperacji między członkami zespołu.
+Niniejsza praca dyplomowa dotyczy projektu aplikacji wspomagającej pracę w grupie. Praca ta również opisuje liczne problemy (wraz z  propozycjami rozwiązań) związane z zagadnieniami dotyczącymi pracy w grupie, takimi jak problem komunikacji, wzajemnego zrozumienia czy samej organizacji, struktury a także formy kooperacji między członkami zespołu.
 \\ \\
-Rozdział pierwszy przedstawia zestawienie istniejących już na rynku rozwiązań, pokazuje strukturę projektu oraz opisuje wykorzystane rozwiązania i narzędzia podczas procesu implementacyjnego. Zawarte są tam także fakty oraz założenia dotyczące projektu.
+Rozdział drugi przedstawia zestawienie istniejących już na rynku rozwiązań, pokazuje strukturę projektu oraz opisuje wykorzystane rozwiązania i narzędzia podczas procesu implementacyjnego. Zawarte są tam także fakty oraz założenia dotyczące projektu.
 \\ \\
-Rozdział drugi zawiera spis wymagań funkcjonalnych wraz ze szczegółowymi opisami. Wymagania te są potrzebne do prawidłowego funkcjonowania aplikacji. Widnieje tam również podrozdział dotyczący wymagań niefunkcjonalnych zawierający m.in. wymagania dotyczące wyglądu aplikacji.
+Rozdział trzeci zawiera spis wymagań funkcjonalnych wraz ze szczegółowymi opisami. Wymagania te są potrzebne do prawidłowego funkcjonowania aplikacji. Widnieje tam również podrozdział dotyczący wymagań niefunkcjonalnych zawierający m.in. wymagania dotyczące wyglądu aplikacji.
 \\ \\
-Rozdział trzeci przedstawia i opisuje wykonany projekt. Znajdują się tam zrzuty ekranu wraz z opisem poszczególnych części wykonanej aplikacji.
+Rozdział czwarty przedstawia i opisuje wykonany projekt. Znajdują się tam zrzuty ekranu wraz z opisem poszczególnych części wykonanej aplikacji.
 \\ \\
-Końcowy, czwarty rozdział obejmuje podsumowanie całości pracy. Zawiera się w nim to co nie zostało zrealizowane oraz dalsze plany dotyczące rozwoju aplikacji w przyszłości wraz z propozycjami dodatkowych funkcjonalności . W tym rozdziale zawarte są również wnioski oraz konkluzje dotyczące procesu programistycznego oraz samego projektu aplikacji.
+Końcowy, piąty rozdział obejmuje podsumowanie całości pracy. Zawiera się w nim to co nie zostało zrealizowane oraz dalsze plany dotyczące rozwoju aplikacji w przyszłości wraz z propozycjami dodatkowych funkcjonalności . W tym rozdziale zawarte są również wnioski oraz konkluzje dotyczące procesu programistycznego oraz samego projektu aplikacji.
 
 \section{Cel pracy}
 Celem pracy jest opisanie projektu aplikacji, procesów na nią się składających oraz zaimplementowanie jej jako działającego programu rozwiązującego problemy pracy w grupie.
@@ -156,7 +156,7 @@ Warstwa ta zajmuje się częścią po stronie serwera, nie jest ona bezpośredni
 \\
 Odbywają się tu także takie procesy jak uwierzytelnianie oraz podtrzymywanie sesji już zalogowanego użytkownika. Implementuje również obsługę błędów, głównie związanych z połączaniem bazodanowym.
 \\
-Warstwa ta ma za zadanie również serwować dane na zewnątrz aplikacji w formie API (Application Programming Interface - Interfejs Programowania Aplikacji)\cite{API}. Oznacza to, że w momencie przejścia pod konkretny adres aplikacji (co jest jednoznaczne z wysłaniem zapytania) jako informację zwrotną otrzymamy żądane dane w formacie JSON(JavaScript Object Notation)\cite{JSON}. Dane te można potem w dowolny sposób wykorzystać.
+Warstwa ta ma za zadanie również serwować dane na zewnątrz aplikacji w formie API (Application Programming Interface - Interfejs Programowania Aplikacji) \cite{API}. Oznacza to, że w momencie przejścia pod konkretny adres aplikacji (co jest jednoznaczne z wysłaniem zapytania) jako informację zwrotną otrzymamy żądane dane w formacie JSON(JavaScript Object Notation) \cite{JSON}. Dane te można potem w dowolny sposób wykorzystać.
 \\
 Została tutaj zaimplementowana także forma zabezpieczenia niektórych warstw danych przed nieautoryzowanym dostępem.
 \subsubsection{Warstwa systemu bazodanowego}
@@ -314,7 +314,7 @@ Poniżej znajdują się tabele odzwierciedlające zaimplementowaną strukturę d
 \newpage
 
 \subsection{Języki programistyczne}
-Warstwa frontendowa została napisana w języku JavaScript\cite{JS}, z wykorzystaniem standardu EcmaScript 6\cite{ES6} oraz składni TypeScript\cite{TS}. Dodatkowo został użyty język znaczników HTML5 ( HyperText Markup Language)\cite{HTML5}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascading Style Sheets)\cite{CSS3}, dzięki którym możliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do pozycjonowania SEO(Search Engine Optimization)\cite{HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor\cite{JS_CPU}. Kolejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
+Warstwa frontendowa została napisana w języku JavaScript \cite{JS}, z wykorzystaniem standardu EcmaScript 6 \cite{ES6} oraz składni TypeScript \cite{TS}. Dodatkowo został użyty język znaczników HTML5 ( HyperText Markup Language) \cite{HTML5}, który służy do reprezentacji treści, jaką przeglądarka internetowa jest w stanie interpretować oraz kaskadowych arkuszy styli CSS3 (Cascading Style Sheets) \cite{CSS3}, dzięki którym możliwym było stworzenie przejrzystego interfejsu. Użycie znaczników HTML 5 sprawiło na dodatek, że aplikacja jest przygotowana do pozycjonowania SEO(Search Engine Optimization) \cite{HTML_SEO} a wdrożenie najnowszych funkcjonalności CSS3, takich jak animacje oraz obsługa niektórych zdarzeń myszki zwiększyło szybkość ładowania się aplikacji, gdyż nie potrzebna jest implementacja po stronie języka JavaScript, który obciąża łącze internetowe oraz procesor \cite{JS_CPU}. Kolejnym atutem jest fakt, iż nawet przy wyłączonej obsłudze JavaScript przeglądarki, aplikacja nadal będzie w pewien sposób używalna (chociażby po to, żeby móc poinformować użytkownika o konieczności włączenia obsługi JavaScript).
 \\
 \\
 Warstwa backendowa również została zaimplementowana w języku JavaScript (z zastosowaniem EcmaScript 6 oraz TypeScript). Posiadanie tego samego języka programowania w obu tych warstwach niesie szereg zalet, z których najważniejszą jest czytelność kodu, poprzez podobne implementacje funkcjonalności na obu tych warstwach, co sprawia, że kod czytany przez osoby trzecie jest łatwiej i szybciej zrozumieć. Jest to niezwykle ważne w dalszych procesach rozwojowych, w chwili gdy zajdzie potrzeba powiększenia zespołu programistycznego.
@@ -322,17 +322,17 @@ Warstwa backendowa również została zaimplementowana w języku JavaScript (z z
 Dodatkowym atutem jest możliwość użycia podobnych (jeśli nie tych samych) narzędzi programistycznych oraz konfiguracji środowiska.
 \\
 \\
-System bazodanowy wykorzystuje implementację MongoDB\cite{MongoDB}, która to posiada strukturę bazy typu NoSQL\cite{NO_SQL}. System ten jest bardzo prosty do skomunikowania z wykorzystującą język JavaScript warstwę backendową. Baza danych MongoDB wykorzystuje notację JSON. Nie implementuje powiązań typowych dla np. MySQL, gdzie występują klucze obce oraz relacje. Każda struktura danych jest z założenia nie powiązana z żadną inną (w sensie implementacyjnym, po stronie samego systemu MongoDB). Sposób relacji zatem określa się dopiero po stronie programowej(tu: warstwa backendowa) i jest on dowolny, optymalnie dobrany do potrzeb i sytuacji.
+System bazodanowy wykorzystuje implementację MongoDB \cite{MongoDB}, która to posiada strukturę bazy typu NoSQL \cite{NO_SQL}. System ten jest bardzo prosty do skomunikowania z wykorzystującą język JavaScript warstwę backendową. Baza danych MongoDB wykorzystuje notację JSON. Nie implementuje powiązań typowych dla np. MySQL, gdzie występują klucze obce oraz relacje. Każda struktura danych jest z założenia nie powiązana z żadną inną (w sensie implementacyjnym, po stronie samego systemu MongoDB). Sposób relacji zatem określa się dopiero po stronie programowej(tu: warstwa backendowa) i jest on dowolny, optymalnie dobrany do potrzeb i sytuacji.
 
 \subsection{Wykorzystane rozwiązania}
 
-Poniżej zostały opisane najważniejsze technologie / rozwiązania użyte w projekcie wraz z przykładem zakresu pracy, który dotyczą. W częśc niektórych zastosowanych rozwiązań wchodzą pomniejsze biblioteki, które wykorzystując nadrzędne rozwiązanie implementują dodatkowe funkcjonalności. Te pomniejsze biblioteki, nie zostały w jawny sposób opisane, gdyż często ich wkład ogranicza się jedynie do formy interpretacji kodu lub formy w jaki jest on napisany. Ich spis znajduje się w postaci tabel w odpowiednich paragrafach.
+Poniżej zostały opisane najważniejsze technologie / rozwiązania użyte w projekcie wraz z przykładem zakresu pracy, który dotyczą. W cześć niektórych zastosowanych rozwiązań wchodzą pomniejsze biblioteki, które wykorzystując nadrzędne rozwiązanie implementują dodatkowe funkcjonalności. Te pomniejsze biblioteki, nie zostały w jawny sposób opisane, gdyż często ich wkład ogranicza się jedynie do formy interpretacji kodu lub formy w jaki jest on napisany. Ich spis znajduje się w postaci tabel w odpowiednich paragrafach.
 
 \subsubsection{Preprocessor Sass}
-Język Sass i preprocessor z nim związany\cite{Sass} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności, takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
+Język Sass i preprocessor z nim związany \cite{Sass} wprowadza nowy sposób w jaki kod CSS jest pisany. Wraz z inną architekturą kodu wprowadza szereg dodatkowych funkcjonalności, takie jak instrukcje warunkowe, pętle, funkcje. Głównym plusem stosowania preprocessora Sass jest zmniejszenie objętości wymaganego do napisania kodu. Dodatkowo zbliżenie do natury języka typowo programistycznego sprawia, że pisanie jest dużo bardziej intuicyjne.
 
 \subsubsection{React.js}
-React.js\cite{React} został wykorzystany w aplikacji jako podstawa warstwy frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScript, dzięki czemu kod napisany jest bardzo modularny i reużywalny. Do samego frameworka zostały użyte dodatkowe biblioteki.
+React.js \cite{React} został wykorzystany w aplikacji jako podstawa warstwy frontendowej. Wykorzystuje koncepcję tworzenia komponentów JavaScript, dzięki czemu kod napisany jest bardzo modularny i reużywalny. Do samego frameworka zostały użyte dodatkowe biblioteki.
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -360,7 +360,7 @@ React.js\cite{React} został wykorzystany w aplikacji jako podstawa warstwy fron
 \end{table}
 
 \subsubsection{Redux}
-Redux\cite{Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności. Wraz z samym rozszerzeniem używane są dodatkowe biblioteki wspomagające pracę Redux.
+Redux \cite{Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organizację kodu poprzez automatyzację części funkcjonalności. Wraz z samym rozszerzeniem używane są dodatkowe biblioteki wspomagające pracę Redux.
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -383,22 +383,22 @@ Redux\cite{Redux} jest rozszerzeniem do React.js, pozwalającym na lepszą organ
 
 
 \subsubsection{Axios}
-Axios\cite{Axios} to biblioteka JavaScript, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa) w celu pobrania danych w notacji JSON.
+Axios \cite{Axios} to biblioteka JavaScript, która została wykorzystana do wysyłania zapytań HTTP na serwer(warstwa backendowa) w celu pobrania danych w notacji JSON.
 
 \subsubsection{Socket.io}
-Socket.io\cite{SocketIO} to biblioteka implementująca koncepcję Web Socket\cite{Keyword_Websocket}. Została użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce. Eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
+Socket.io \cite{SocketIO} to biblioteka implementująca koncepcję Web Socket \cite{Keyword_Websocket}. Została użyta po stronie warstwy frontendowej oraz backendowej w celu zapewnienia komunikacji w czasie rzeczywistym podczas działania zaimplementowanego komunikatora. Rozwiązanie te pozwala na dosyć istotną redukcję ilości wysyłanych i odebranych zapytań w aplikacji poprzez obsługę tylko zdarzeń, które rzeczywiście miały miejsce. Eliminuje to problem cyklicznego "odpytywania" warstwy backendowej w celu sprawdzenia czy baza danych została zmieniona.
 
 \subsubsection{Sortable.js}
-Bilbioteka Sortable.js\cite{SortableJS} to obszerne narzędzie do zarządzania elementami typu "przeciągnij oraz upuść"(tzw. Drag and Drop). Została zaimplementowana w celu podniesienia poziomu User Experience\cite{Keyword_UserExperience}.
+Bilbioteka Sortable.js \cite{SortableJS} to obszerne narzędzie do zarządzania elementami typu "przeciągnij oraz upuść"(tzw. Drag and Drop). Została zaimplementowana w celu podniesienia poziomu User Experience \cite{Keyword_UserExperience}.
 
 \subsubsection{Moment.js}
-Biblioteka ta\cite{MomentJS} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
+Biblioteka ta \cite{MomentJS} służy do formatowania daty, odliczania czasu. Została zaimplementowana w miejscach gdzie nastąpiła referencja do daty stworzenia elementu.
 
 \subsubsection{Node.js}
-Struktura oparta o Node.js\cite{NodeJS} jest wykorzystywana jako główny filar warstwy backendowej. Framework ten jest odpowiedzialny za całą obsługę serwera oraz wcześniej opisanych (patrz: warstwa backendowa) funkcjonalności. Dodatkowo oprogramowanie oferuje system zarządzania zależnościami (NPM, patrz: wykorzystane narzędzia).
+Struktura oparta o Node.js \cite{NodeJS} jest wykorzystywana jako główny filar warstwy backendowej. Framework ten jest odpowiedzialny za całą obsługę serwera oraz wcześniej opisanych (patrz: warstwa backendowa) funkcjonalności. Dodatkowo oprogramowanie oferuje system zarządzania zależnościami (NPM, patrz: wykorzystane narzędzia).
 
 \subsubsection{Express}
-Express\cite{Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js o dodatkowe funkcjonalności automatyzujące oraz usprawniające pisanie kodu.
+Express \cite{Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js o dodatkowe funkcjonalności automatyzujące oraz usprawniające pisanie kodu.
 
 \begin{table}[H]
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -420,19 +420,19 @@ Express\cite{Express} jest rozszerzeniem wzbogacającym oprogramowanie Node.js o
 \subsection{Wykorzystane narzędzia}
 
 \subsubsection{Node Package Manager (NPM)}
-Node Package Manager (NPM)\cite{NPM} jest dostarczanym wraz z oprogramowaniem Node.js narzędziem do zarządzania zależnościami projektowymi. Przez te pojęcie rozumie się wszelkie zewnętrzne paczki dodatkowych bibliotek, rozszerzeń programistycznych. NPM pozwala na proste ich dodawanie, usuwanie oraz aktualizację w zależności od potrzeb (np. dotyczących wersji).
+Node Package Manager (NPM) \cite{NPM} jest dostarczanym wraz z oprogramowaniem Node.js narzędziem do zarządzania zależnościami projektowymi. Przez te pojęcie rozumie się wszelkie zewnętrzne paczki dodatkowych bibliotek, rozszerzeń programistycznych. NPM pozwala na proste ich dodawanie, usuwanie oraz aktualizację w zależności od potrzeb (np. dotyczących wersji).
 
 \subsubsection{Yarn}
-Yarn\cite{Yarn} jest dodatkową paczką wspierającą oraz rozszerzającą NPM o funkcjonalności głównie dotyczących  zainstalowanych już paczek. Jest wykorzystywany w projekcie do kontrolowania wersji zależności (automatyzacja wyszukiwania nieaktualnych oraz ich aktualizacja za pomocą jednej komendy). Dzięki Yarn można także sprawdzić, które paczki są nieużywane w projekcie (co determinuje możliwość ich usunięcia).
+Yarn \cite{Yarn} jest dodatkową paczką wspierającą oraz rozszerzającą NPM o funkcjonalności głównie dotyczących  zainstalowanych już paczek. Jest wykorzystywany w projekcie do kontrolowania wersji zależności (automatyzacja wyszukiwania nieaktualnych oraz ich aktualizacja za pomocą jednej komendy). Dzięki Yarn można także sprawdzić, które paczki są nieużywane w projekcie (co determinuje możliwość ich usunięcia).
 
 \subsubsection{Sass Lint}
-Zależność ta\cite{SassLint} wspomaga proces zachowania czystego, bardziej czytelniejszego kodu napisanego w preprocessorze  Sass poprzez stosowanie (wcześniej zdefiniowanych) zasad dotyczących np. ilości spacji, odstępów tabulatora, sposobu zapisania reguł. Proces ten nosi nazwę lintowania.
+Zależność ta \cite{SassLint} wspomaga proces zachowania czystego, bardziej czytelniejszego kodu napisanego w preprocessorze  Sass poprzez stosowanie (wcześniej zdefiniowanych) zasad dotyczących np. ilości spacji, odstępów tabulatora, sposobu zapisania reguł. Proces ten nosi nazwę lintowania.
 
 \subsubsection{TS Lint}
-TypeScript Linter\cite{TSLint} ma analogiczne zadanie co wyżej wymieniony Sass Lint, jednak dotyczy kodu zapisanego w języku TypeScript.
+TypeScript Linter \cite{TSLint} ma analogiczne zadanie co wyżej wymieniony Sass Lint, jednak dotyczy kodu zapisanego w języku TypeScript.
 
 \subsubsection{Webpack}
-Webpack\cite{Webpack} jest narzędziem sprawującym kontrolę nad automatyzacją wielu zadań dotyczących kodu oraz środowiska programistycznego. Do głównych zadań należy przede wszystkim transpilacja\cite{Keyword_Transpile}, czyli tłumaczenia języka napisanego przez programistę na inną jego wersję, co tu przekłada się na przepisywanie kodu w standardzie ES6(który nie jest zrozumiały przez przeglądarki) na standard ES5, który jest w pełni kompatybilny z interpretatorem przeglądarek. Kod napisany w preprocesorze Sass również jest niezrozumiały dla przeglądarek, toteż webpack zajmuje się transpilacją na język kaskadowych arkuszy stylów CSS.
+Webpack \cite{Webpack} jest narzędziem sprawującym kontrolę nad automatyzacją wielu zadań dotyczących kodu oraz środowiska programistycznego. Do głównych zadań należy przede wszystkim transpilacja \cite{Keyword_Transpile}, czyli tłumaczenia języka napisanego przez programistę na inną jego wersję, co tu przekłada się na przepisywanie kodu w standardzie ES6(który nie jest zrozumiały przez przeglądarki) na standard ES5, który jest w pełni kompatybilny z interpretatorem przeglądarek. Kod napisany w preprocesorze Sass również jest niezrozumiały dla przeglądarek, toteż webpack zajmuje się transpilacją na język kaskadowych arkuszy stylów CSS.
 \\
 W narzędziu tym możemy zdefiniować dodatkowe reguły dotyczące pliku wyjściowego, m.in.: łączenie wszystkiego w jeden plik (bundle), zmiana nazw zmiennych w celu zaoszczędzenia miejsca, zmiana nazw klas CSS wg. ustalonego schematu oraz wiele innych. 
 \\
@@ -476,17 +476,17 @@ Webpack wykorzystuje dużo gotowych rozwiązań podczas swojej pracy.
 \end{table}
    
 \subsubsection{Nodemon}
-Nodemon\cite{Nodemon} jest wsparciem do zarządzania serwerem podczas procesu programowania. Rozwiązuje on problem potrzeby ciągłego odświeżania domyślnego serwera dostarczanego przez oprogramowanie Node.js w chwili zmiany pliku, który jest aktualnie przetwarzany. Nodemon w prosty sposób wprowadza nasłuch na zmiany tego pliku, automatycznie restartując serwer gdy takowe się pojawią.
+Nodemon \cite{Nodemon} jest wsparciem do zarządzania serwerem podczas procesu programowania. Rozwiązuje on problem potrzeby ciągłego odświeżania domyślnego serwera dostarczanego przez oprogramowanie Node.js w chwili zmiany pliku, który jest aktualnie przetwarzany. Nodemon w prosty sposób wprowadza nasłuch na zmiany tego pliku, automatycznie restartując serwer gdy takowe się pojawią.
 
 \subsubsection{GIT}
-System kontroli wersji GIT\cite{GIT} w folderze plików aplikacji tworzy repozytorium, w którym możemy tworzyć gałęzie (branch) zawierające tylko zmiany na plikach wykonanych w jej obrębie. Przekłada się to na wysokiej jakości kontrolę nad zawartością kodu oraz zwiększeniu bezpieczeństwa wynikającego z błędu programistycznego. 
+System kontroli wersji GIT \cite{GIT} w folderze plików aplikacji tworzy repozytorium, w którym możemy tworzyć gałęzie (branch) zawierające tylko zmiany na plikach wykonanych w jej obrębie. Przekłada się to na wysokiej jakości kontrolę nad zawartością kodu oraz zwiększeniu bezpieczeństwa wynikającego z błędu programistycznego. 
 
 \subsubsection{Travis CI}
 Travis CI \cite{TravisCI} jest to narzędzie typu Continuous Integration \cite{Keyword_CI} pozwalające na kontrolowanie wysyłanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite{Keyword_Webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te etapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze zdalnym z zastosowaniem nowych funkcjonalności. \\
 Zapewnia to, że wykonany do pewnego etapu projekt jest w pełni funkcjonalny, wolny od błędów programistycznych czy kodowych. Travis CI wspiera wysyłanie powiadomień (np. e-mail) w chwili gdy którykolwiek z etapów nie zostanie wykonany poprawnie co minimalizuje czas potrzebny na naprawę aplikacji.
 
 \subsubsection{Heroku}
-Heroku\cite{Heroku} jest to darmowa platforma do uruchamiania aplikacji na serwerze(dostarczanym przez Heroku). Dzięki temu projekt jest możliwy do podglądu online. Dodatkowo Heroku tworzy repozytorium wraz z kodem aplikacji, co zabezpiecza kod przez utraceniem (głównym repozytorium pozostaje Github). Platforma ta dostarcza również wgląd w statystyki aplikacji oraz logi zawierające takie informacje jak status aplikacji, historię nawiązywanych połączeń oraz zdarzeń. Usprawnia to proces ewentualnego wyszukiwania błędów programistycznych.
+Heroku \cite{Heroku} jest to darmowa platforma do uruchamiania aplikacji na serwerze(dostarczanym przez Heroku). Dzięki temu projekt jest możliwy do podglądu online. Dodatkowo Heroku tworzy repozytorium wraz z kodem aplikacji, co zabezpiecza kod przez utraceniem (głównym repozytorium pozostaje Github). Platforma ta dostarcza również wgląd w statystyki aplikacji oraz logi zawierające takie informacje jak status aplikacji, historię nawiązywanych połączeń oraz zdarzeń. Usprawnia to proces ewentualnego wyszukiwania błędów programistycznych.
 
 \subsubsection{Baza danych seriwsu mLab}
 W projekcie została wykorzystana darmowa implementacja bazy danych MongoDB udostępniana przez serwis mLab (https://mlab.com/). Nie było zatem konieczne instalowania serwisu bazy danych na komputerze lokalnym(podczas procesu programowania). Jednocześnie dane używane podczas implementacji są takie same jak w chwili udostępnienia podglądu online na platformę Heroku.
@@ -575,7 +575,7 @@ Po odebraniu zapytania na konkretnym adresie warstwa backendowa uruchamia wcześ
 Ścieżki (routes) są zdefiniowane na podstawie schematu:
 \begin{itemize}
   \item[--] \textbf{POST, GET}: /api/\textit{nazwa-struktury-danych}, np: /api/user
-  \item[--] \textbf{GET SINGLE, PUT, DELETE}: /api/\textit{nazwa-struktury-anych}/\textit{parametr-identyfikujący}, np: /api/user/john-smith.
+  \item[--] \textbf{GET SINGLE, PUT, DELETE}: /api/\textit{nazwa-struktury-anych}/\textit{parametr-identyfikujący}, np.: /api/user/john-smith.
 \end{itemize}
 Dodatkowo nie wszystkie typy zapytań oraz ścieżki są dostępne dla każdego użytkownika aplikacji. Użytkownik niezalogowany ma dostęp tylko do:
 \begin{itemize}
@@ -589,7 +589,7 @@ Każdy zalogowany użytkownik otrzymuje dostęp do:
   \item[--] Danych do projektu, na bazie którego wykonał akcję logowania (dane projektu + dane powiązane takie jak współużytkownicy, tablice, zadania).
 \end{itemize}
 \ \\
-Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT\cite{Keyword_JWTToken}.
+Autoryzacja jest zaimplementowana z wykorzystaniem tokenu JWT \cite{Keyword_JWTToken}.
 
 \subsection{Implementacja ścieżki dla warstwy frontendowej}
 \begin{labeling}{Nr wymagania}
@@ -670,7 +670,7 @@ Po wysłaniu formularza aplikacja sprawdza zgodność wprowadzonych danych z dan
 	\item[--] Użytkownik należy do projektu.
 \end{itemize}
 \ \\
-W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage\cite{Keyword_LocaLStorage}.
+W przypadku niepowodzenia wyświetlany jest komunikat o niepoprawnych danych. W przypadku sukcesu strona główna się odświeża a strona logowania jest podmieniana przez stronę główną aplikacji dostępnej dla zalogowanego użytkownika. Dodatkowo token JWT zawierający zakodowane dane takie jak nazwa użytkownika oraz projektu jest zapisywany w bazie danych przeglądarki typu Local Storage \cite{Keyword_LocaLStorage}.
 
 \subsection{Wyświetlanie statystyk strony}
 \begin{labeling}{Nr wymagania}
@@ -942,30 +942,70 @@ Po naciśnięciu odpowiedniego przycisku pojawia się panel boczny z wylistowany
 
 \section{Wymagania niefunkcjonalne}
 \subsection{Wymaganie estetyczne}
-\begin{itemize}
-  \item Styl aplikacji musi być utrzymany w konwencji Material Design\cite{Material}
-  \item Aplikacja musi spełniać standardy narzucone przez serwis MDN\cite{MDN_HTML}\cite{MDN_CSS} dotyczących użycia znaczników HTML5 oraz CSS3.
-  \item Interfejs aplikacji musi spełniać podstawowe założenia ideii User Experience oraz User Interface\cite{Keyword_UserInterface}.
-  \item Aplikacja zakłada przejrzystość struktury oraz estetykę interfejsu.
-\end{itemize} 
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 19
+ \item [\textbf{Treść}:] Styl aplikacji musi być utrzymany w konwencji Material Design \cite{Material}
+\end{labeling} \ \\
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 20
+ \item [\textbf{Treść}:] Aplikacja musi spełniać standardy narzucone przez serwis MDN \cite{MDN_HTML}\cite{MDN_CSS} dotyczących użycia znaczników HTML5 oraz CSS3.
+\end{labeling} \ \\
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 21
+ \item [\textbf{Treść}:] Interfejs aplikacji musi spełniać podstawowe założenia ideii User Experience oraz User Interface \cite{Keyword_UserInterface}.
+\end{labeling}
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 22
+ \item [\textbf{Treść}:] Aplikacja zakłada przejrzystość struktury oraz estetykę interfejsu.
+\end{labeling}
 
 \subsection{Wymaganie dotyczące ergonomii i wygody}
-\begin{itemize}
-  \item Korzystanie z aplikacji nie powinno wymagać znajomości użytych języków programistycznych czy ogólnie pojętego programowania.
-  \item Wszelkie interakcje ze strukturą interfejsu aplikacji powinny przebiegać dynamicznie, bez zbędnych przekierowań na podstrony  czy oczekiwania na rezultat wykonanych akcji.
-\end{itemize}
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 23
+ \item [\textbf{Treść}:] Korzystanie z aplikacji nie powinno wymagać znajomości użytych języków programistycznych czy ogólnie pojętego programowania.
+\end{labeling} \ \\
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 24
+ \item [\textbf{Treść}:] Wszelkie interakcje ze strukturą interfejsu aplikacji powinny przebiegać dynamicznie, bez zbędnych przekierowań na podstrony  czy oczekiwania na rezultat wykonanych akcji.
+\end{labeling}
+
 \subsection{Wymagania dotyczące skalowalności i rozszerzalności}
-\begin{itemize}
-  \item Dodawanie nowych funkcjonalności do aplikacji nie powinno być procesem skomplikowanym, ingerującym za bardzo w napisany kod.
-  \item Struktura MongoDB jest stworzona z myślą o przetrzymywaniu dużej ilości danych, toteż graniczne wartości liczbowe dotyczące ilości konkretnych danych nie są możliwe do ustalenia. Należy jednak pamiętać, że w celu obsługi dużej ilości użytkowników przetwarzających dane wymagany jest również serwer o odpowiednio dobranej mocy obliczeniowej.
-  \item Użyte środowisko programistyczne nie jest przygotowane do obsługi aplikacji w wersji finalnej. Wymaganym jest zatem, aby finalna wersja aplikacji była zaimplementowana w komercyjnym, odpowiednio dobranym środowisku.
-\end{itemize}
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 25
+ \item [\textbf{Treść}:] Dodawanie nowych funkcjonalności do aplikacji nie powinno być procesem skomplikowanym, ingerującym za bardzo w napisany kod.
+\end{labeling} \ \\
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 26
+ \item [\textbf{Treść}:] Struktura MongoDB jest stworzona z myślą o przetrzymywaniu dużej ilości danych, toteż graniczne wartości liczbowe dotyczące ilości konkretnych danych nie są możliwe do ustalenia. Należy jednak pamiętać, że w celu obsługi dużej ilości użytkowników przetwarzających dane wymagany jest również serwer o odpowiednio dobranej mocy obliczeniowej.
+\end{labeling} \ \\
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 27
+ \item [\textbf{Treść}:] Użyte środowisko programistyczne nie jest przygotowane do obsługi aplikacji w wersji finalnej. Wymaganym jest zatem, aby finalna wersja aplikacji była zaimplementowana w komercyjnym, odpowiednio dobranym środowisku.
+\end{labeling}
+
 \subsection{Wymagania dotyczące bezpieczeństwa korzystania z systemu}
-\begin{itemize}
-  \item System bazodanowy musi być odpowiednio zabezpieczony przed ingerencją osób nieautoryzowanych. Wymaga się zatem aby hasło zabezpieczające posiadało znaki różnego typu (litery, cyfry, znaki specjalne)
-  \item Wymagane jest, aby baza danych aplikacji w wersji finalnej była zaimplementowana w odpowiednio przygotowanym środowisku, oferującym rozwiązania wysokiej jakości oraz zabezpieczenia w postaci kopi zapasowych. Nie zaleca się stosowania rozwiązań darmowych, w których bezpieczeństwo przed utratą danych jest niezapewnione.
-  \item W bazie danych nie mogą być przetrzymywane jawne hasła. Należy zapewnić zabezpieczenie w postaci użycia funkcji korzystającej z MD5\cite{MD5} lub pochodnej.
-\end{itemize}
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 28
+ \item [\textbf{Treść}:] System bazodanowy musi być odpowiednio zabezpieczony przed ingerencją osób nieautoryzowanych. Wymaga się zatem aby hasło zabezpieczające posiadało znaki różnego typu (litery, cyfry, znaki specjalne)
+\end{labeling} \ \\
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 29
+ \item [\textbf{Treść}:] Wymagane jest, aby baza danych aplikacji w wersji finalnej była zaimplementowana w odpowiednio przygotowanym środowisku, oferującym rozwiązania wysokiej jakości oraz zabezpieczenia w postaci kopi zapasowych. Nie zaleca się stosowania rozwiązań darmowych, w których bezpieczeństwo przed utratą danych jest niezapewnione.
+\end{labeling} \ \\
+
+\begin{labeling}{Nr wymagania}
+ \item [\textbf{Nr wymagania}:] 30
+ \item [\textbf{Treść}:] W bazie danych nie mogą być przetrzymywane jawne hasła. Należy zapewnić zabezpieczenie w postaci użycia funkcji korzystającej z MD5 \cite{MD5} lub pochodnej.
+\end{labeling}
+
 \chapter{Projekt aplikacji}
 \section{Opis aplikacji}
 Poniżej znajduje się opis najważniejszych funkcjonalności zaimplementowanej aplikacji.
@@ -1165,6 +1205,8 @@ Poniżej znajduje się wypunktowana lista zawierająca to czego nie udało się 
 \end{itemize}
 Zostały jednak spełnione wszystkie wymagania dotyczące wyglądu aplikacji oraz ergonomii i wygody korzystania z niej. Aplikacja posiada przejrzysty i intuicyjny interfejs oraz jest w pełni dynamiczna pod względem zarządzania danymi czy szybkości działania. \\
 Zaimplementowane wymagania funkcjonalne spełniają część zakładanej roli pomimo błędów w działaniu niektórych z nich.
+\\
+Projekt aplikacji ma duży potencjał wybicia się ponad obecne na rynku rozwiązania z powodu implementacji wielu innowacyjnych funkcjonalności oraz połączeniu ich w sposób nie występujący w żadnej innej aplikacji.
 
 \section{Problemy zaistniałe podczas implementacji}
 Poniżej znajdują się najważniejsze problemy napotkane podczas realizacji projektu dyplomowego. Mają one charakter ogólny, nie zawierają konkretnych części (np. funkcji w kodzie, dni, wydarzeń):
@@ -1182,8 +1224,7 @@ Dalszy rozwój aplikacji w przyszłości wymagać będzie na pewno dokończenia 
   \item Dodatkową integrację z systemami kontroli wersji (GIT) w celu połączenia projektu bezpośrednio z aplikacją umożliwiając tym samym przeglądanie zmian wprowadzanych przez współpracowników wraz z systemem komentarzy.
   \item Stworzenie aplikacji na telefon umożliwiającą podgląd zmian oraz nadzorowanie projektu bez potrzeby bycia stacjonarnym.
 \end{itemize}
-\section{Mowa końcowa}
-Projekt aplikacji ma duży potencjał wybicia się ponad obecne na rynku rozwiązania z powodu implementacji wielu innowacyjnych funkcjonalności oraz połączeniu ich w sposób nie występujący w żadnej innej aplikacji.
+
 \addcontentsline{toc}{chapter}{Bibliografia}
 
 \begingroup
