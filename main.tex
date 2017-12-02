@@ -41,11 +41,13 @@
 \chapter{Wstęp}  
 Niniejsza praca dyplomowa opisuje liczne problemy związane z zagadnieniami dotyczącymi pracy w grupie takimi jak problem komunikacji, wzajemnego zrozumienia czy samej organizacji, struktury a także formy kooperacji między członkami zespołu.
 \\
-Pierwsza cześć składa się ze szczegółowego omówienia problemu występującego na rynku, zebraniu wymagań, przedstawienia gotowych już rozwiązań oraz porównania z proponowanym projektem.
+Rozdział pierwszy przedstawia zestawienie istniejących już na rynku rozwiązań, pokazuje strukturę projektu oraz opisuje wykorzystane rozwiązania i narzędzia podczas procesu implementacyjnego. Zawarte są tam także fakty oraz założenia dotyczące projektu.
 \\
-Druga cześć opisuje proces implementacji aplikacji internetowej. Zawiera min opis wykorzystanych technologii, narzędzi. Znalazł się tam również system pracy nad projektem oraz jej podział.
+Rozdział drugi zawiera spis wymagań funkcjonalnych wraz ze szczegółowymi opisami. Wymagania te są potrzebne do prawidłowego funkcjonowania aplikacji. Widnieje tam również podrozdział dotyczący wymagań niefunkcjonalnych zawierający m.in. wymagania dotyczące wyglądu aplikacji.
 \\
-Końcowa, trzecia część obejmuje podsumowanie całości pracy; Zawiera się w nim to co zostało zrealizowane do chwili obecnej oraz dalsze plany dotyczące rozwoju aplikacji w przyszłości wraz z propozycjami dodatkowych funkcjonalności . W tej części zawarte są również wnioski oraz konkluzje dotyczące procesu programistycznego oraz samego projektu aplikacji.
+Rozdział trzeci przedstawia i opisuje wykonany projekt. Znajdują się tam zrzuty ekranu wraz z opisem poszczególnych części wykonanej aplikacji.
+\\
+Końcowy,czwarty rozdział obejmuje podsumowanie całości pracy. Zawiera się w nim to co nie zostało zrealizowane oraz dalsze plany dotyczące rozwoju aplikacji w przyszłości wraz z propozycjami dodatkowych funkcjonalności . W tym rozdziale zawarte są również wnioski oraz konkluzje dotyczące procesu programistycznego oraz samego projektu aplikacji.
 
 \section{Cel pracy}
 Celem pracy jest opisanie projektu aplikacji, procesów na nią się składających oraz zaimplementowanie jej jako działającego programu rozwiązującego problemy pracy w grupie.
@@ -333,7 +335,7 @@ Nodemon \cite{Nodemon} jest wsparciem do zarządzania serwerem podczas procesu p
 System kontroli wersji GIT \cite{GIT} w folderze plików aplikacji tworzy repozytorium, w którym możemy tworzyć gałęzie (branch) zawierające tylko zmiany na plikach wykonanych w jej obrębie. Przekłada się to na wysokiej jakości kontrolę nad zawartością kodu oraz zwiększeniu bezpieczeństwa wynikającego z błędu programistycznego. 
 
 \subsubsection{Travis CI}
-Travis CI \cite{TravisCI} jest to narzędzie typu Continous Integration \cite{Keyword_CI} pozwalające na kontrolowanie wrzucanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite{Keyword_Webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te tapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze z zastosowaniem nowych funkcjonalności. \\
+Travis CI \cite{TravisCI} jest to narzędzie typu Continuous Integration \cite{Keyword_CI} pozwalające na kontrolowanie wrzucanego kodu na serwis Github. Narzędzie to nasłuchuje na zdarzenia typu "push" (webhook \cite{Keyword_Webhook}) i w momencie zarejestrowania uruchamia szereg komend(zdefiniowanych przez programistę) wykonujących się na kodzie. Te tapy to między innymi proces budowania aplikacji (build), uruchamianie narzędzie ts/sass lint (lint) oraz przesyłanie kodu na serwis Heroku(deploy) w celu ponownego uruchomienia aplikacji na serwerze z zastosowaniem nowych funkcjonalności. \\
 Zapewnia to, że wykonany do pewnego etapu projekt jest w pełni funkcjonalny, wolny od błędów programistycznych czy kodowych. Travis CI wspiera wysyłanie powiadomień (np. e-mail) w chwili gdy którykolwiek z etapów nie zostanie wykonany poprawnie co minimalizuje czas potrzebny na naprawę aplikacji.
 
 \subsubsection{Heroku}
@@ -864,7 +866,12 @@ Dalszy rozwój aplikacji w przyszłości wymagać będzie na pewno dokończenia 
 \section{Mowa końcowa}
 Projekt aplikacji ma duży potencjał wybicia się ponad obecne na rynku rozwiązania z powodu implementacji wielu innowacyjnych funkcjonalności oraz połączeniu ich w sposób nie występujący w żadnej innej aplikacji.
 \addcontentsline{toc}{chapter}{Bibliografia}
+
+\begingroup
+\raggedright
 \bibliography{bibliografia}
+\endgroup
+
 
 
 \end{document}
