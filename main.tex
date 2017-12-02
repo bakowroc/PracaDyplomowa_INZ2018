@@ -16,9 +16,9 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{hhline}
-
+\usepackage{graphicx}
 \usepackage{showlabels}
-
+\graphicspath{ {images/} }
 \newcommand{\R}{I\!\!R}
 \newtheorem{theorem}{Twierdzenie}[section]
 
@@ -821,7 +821,163 @@ Po naciśnięciu odpowiedniego przycisku pojawia się panel boczny z wy listowan
 \end{itemize}
 \chapter{Projekt aplikacji}
 \section{Opis aplikacji}
-\section{Instrukcja korzystania}
+Poniżej znajduje się opis najważniejszych funkcjonalności zaimplementowanej aplikacji.
+\subsection{Strona główna przed zalogowaniem}
+
+\subsubsection{Widok strony logowania}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.62]{login}
+  \end{center}
+  \caption{Widok strony głównej przed zalogowaniem}
+\end{figure}
+
+\begin{enumerate}
+  \item Link do strony rejestracji.
+  \item Formularz umożliwiający zalogowanie się do serwisu.
+\end{enumerate}
+\newpage
+
+\subsubsection{Widok strony rejestracji}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.8]{register}
+  \end{center}
+  \caption{Widok strony rejestracji nowego konta}
+\end{figure}
+
+\begin{enumerate}
+  \item Pola wymagane w celu zarejestrowania nowego konta w serwisie. 
+  \item Przycisk wysyłający formularz.
+  \item Link umożliwiający powrót do strony logowania.
+\end{enumerate}
+\newpage
+
+\subsection{Strona główna po zalogowaniu}
+\subsubsection{Menu}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.8]{menu}
+  \end{center}
+  \caption{Widok menu aplikacji}
+\end{figure}
+
+\begin{enumerate}
+  \item Podgląd zalogowanego użytkownika. Widoczne informacje: Wygenerowany awatar, nazwa użytkownika, adres e-mail.
+  \item Spis dostępnych zakładek wraz z ikonami.
+\end{enumerate}
+\newpage
+
+\subsubsection{System powiadomień}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.8]{notification}
+  \end{center}
+  \caption{Widok ikony włączającej panel powiadomień}
+\end{figure}
+
+\begin{enumerate}
+  \item Ikona włączająca system powiadomień
+\end{enumerate}
+\newpage
+
+\subsubsection{Statystyki strony}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.75]{stats}
+  \end{center}
+  \caption{Widok statystyk}
+\end{figure}
+\begin{enumerate}
+  \item Liczbowe podsumowanie treści na stronie wraz z podpisem oraz ikoną.
+  \item Spis pięciu ostatnio dodanych zadań.
+  \item Przycisk przekierowujący do widoku tablic i zadań.
+\end{enumerate}
+\newpage
+
+\subsection{Widok tablicy oraz zadań}
+\subsubsection{Widok dodawania tablicy}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.8]{add_board}
+  \end{center}
+  \caption{Widok formularza dodawania nowej tablicy}
+\end{figure}
+\begin{enumerate}
+  \item Pola wymagane opisujące tablicę.
+\end{enumerate}
+\newpage
+
+\subsubsection{Widok tablicy z zadaniami}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.8]{task_list_board}
+  \end{center}
+  \caption{Widok tablicy wraz z listą zadań}
+\end{figure}
+\begin{enumerate}
+  \item Informacje odnośnie tablice. Od lewej: ikona, nazwa tablicy, menu z opcjami.
+  \item Widok pojedynczego zadania na liście. Widoczne informacje: Kolor oznaczający priorytet, nazwa zadania, opis.
+  \item Przycisk umożliwiający dodanie zadania.
+\end{enumerate}
+\newpage
+
+\subsubsection{Widok dodawania zadania}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.8]{add_task}
+  \end{center}
+  \caption{Widok formularza dodawania nowego zadania}
+\end{figure}
+\begin{enumerate}
+  \item Pola wymagane opisujące zadanie.
+  \item Pole wyboru dotyczące otwarcia szczegółów po  stworzeniu zadania.
+\end{enumerate}
+\newpage
+
+\subsubsection{Widok szczegółów zadania}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.66]{task_details}
+  \end{center}
+  \caption{Widok szczegółów zadania}
+\end{figure}
+\begin{enumerate}
+  \item Podstawowe informacje opisujące zadanie: Tytuł oraz opis.
+  \item Przyciski do zaznaczania zadania jako wykonany oraz usuwanie w formie zablokowanej.
+  \item Spis dodatkowych informacji: autor, data utworzenia, priorytet.
+  \item Spis osób przypisanych do zadania.
+  \item Kawałek czatu dotyczącego tego zadania.
+\end{enumerate}
+\newpage
+\subsection{Widok czatu wiadomości tekstowych}
+\subsubsection{Widok przykładowego czatu z wylistowanymi wiadomościami}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.75]{chat}
+  \end{center}
+  \caption{Widok czatu}
+\end{figure}
+\begin{enumerate}
+  \item Podstawowe informacje opisujące pokój czatu: Nazwa oraz opis.
+  \item Widok wiadomości wysłanej na czacie zawierająca podstawowe informajce takie jak: czas, nazwę użytkownika, treść, awatar.
+\end{enumerate}
+\newpage
+
+\subsubsection{Menu boczne czatu wiadomości}
+\begin{figure}[H]
+  \begin{center}
+  \includegraphics[scale=0.8]{task_chat_lists}
+  \end{center}
+  \caption{Widok menu czatu}
+\end{figure}
+
+\begin{enumerate}
+  \item Podział na czaty dotyczące zadań oraz inne.
+  \item Lista czatów powiązanych z zadaniami.
+\end{enumerate}
+\newpage
+
 \chapter{Podsumowanie}
 Implementacja projektu nie została w pełni ukończona jednak udało się spełnić większość wymagań funkcjonalnych i niefunkcjonalnych(niektóre tylko częściowo), głównie tych o priorytecie wymaganym. Wymagań o priorytecie niższym nie udało się zaimplementować wcale, jednak są one solidną podstawą na dalszą część rozwoju aplikacji w przyszłości.
 \\
